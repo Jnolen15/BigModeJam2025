@@ -9,14 +9,17 @@ public class TextChatMsg : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _timeStamp;
     [SerializeField] private TextMeshProUGUI _chatterName;
     [SerializeField] private TextMeshProUGUI _message;
+
+    private ChatManager _chatMan;
     
 
     // ============== Setup ==============	
-    public void Setup(string timeStamp, string chatterName, string msg)
+    public void Setup(string timeStamp, string chatterName, string msg, ChatManager chatMngr)
     {
         _timeStamp.text = timeStamp;
         _chatterName.text = chatterName;
         _message.text = msg;
+        _chatMan = chatMngr;
 
         // Something here for buddy badge
     }
@@ -25,5 +28,11 @@ public class TextChatMsg : MonoBehaviour
     public void OnClick()
     {
         Debug.Log("Clicked!!!");
+        _chatMan.BanMe(this);
+    }
+
+    public void DestroyMsg()
+    {
+        Destroy(gameObject);
     }
 }
