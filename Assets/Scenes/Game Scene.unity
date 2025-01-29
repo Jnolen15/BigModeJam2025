@@ -475,9 +475,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _accountNameTextBox: {fileID: 1051686279}
+  _rulesTextBox: {fileID: 790350733}
   _modToolsTab: {fileID: 452041089}
   _rulesTab: {fileID: 929275914}
   _targetAccountName: 
+  RulesList: []
 --- !u!1 &296250223
 GameObject:
   m_ObjectHideFlags: 0
