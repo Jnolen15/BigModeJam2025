@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f22aafa7a0e28fe488778183f1b68b21, type: 3}
-  m_Name: Test
+  m_Script: {fileID: 11500000, guid: 0d7139a0b01c67b44a54f9df50e4ba3e, type: 3}
+  m_Name: Jared
   m_EditorClassIdentifier: 
-  message: lol thanks Jared
-  violations: 
+  Username: 

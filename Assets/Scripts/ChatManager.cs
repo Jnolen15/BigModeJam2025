@@ -7,10 +7,15 @@ using UnityEngine.UI;
 public class ChatManager : MonoBehaviour
 {
     // ============== Refrences / Variables ==============
+    [Header("Refrences")]
     [SerializeField] private GameObject _chatMsgPref;
     [SerializeField] private RectTransform _chatArea;
     [SerializeField] public RectTransform _maskRect;
     [SerializeField] private List<TextChatMsg> _activeChatList = new List<TextChatMsg>();
+
+    [Header("Chats")]
+    [SerializeField] private List<CommentsSO> _commentsList = new List<CommentsSO>();
+    [SerializeField] private List<UsernamesSO> _usernameList = new List<UsernamesSO>();
 
     // For testing
     [SerializeField] private float _msgtimer;
@@ -29,10 +34,17 @@ public class ChatManager : MonoBehaviour
         else
         {
             _msgtimer = Random.Range(1, 3);
-            DisplayChatMsg("Keenan", "Ban me");
+            SendNewChat();
+            LookForPastMsgs();
         }
+    }
 
-        LookForPastMsgs();
+    private void SendNewChat()
+    {
+        int randComment = Random.Range(0, _commentsList.Count);
+        int randUsername = Random.Range(0, _usernameList.Count);
+
+        DisplayChatMsg(_usernameList[randUsername].GetUsername(), _commentsList[randComment].Message);
     }
 
     private void LookForPastMsgs()
