@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Comment")]
-public class Comments : ScriptableObject
+public class CommentsSO : ScriptableObject
 {
     [TextArea]
-    public string message;
+    public string Message;
 
     public enum Violations
     {
