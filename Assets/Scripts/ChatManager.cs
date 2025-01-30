@@ -17,6 +17,8 @@ public class ChatManager : MonoBehaviour
     [SerializeField] private List<CommentsSO> _commentsList = new List<CommentsSO>();
     [SerializeField] private List<UsernamesSO> _usernameList = new List<UsernamesSO>();
 
+    private float _streamTimer;
+
     // For testing
     [SerializeField] private float _msgtimer;
 
@@ -29,6 +31,8 @@ public class ChatManager : MonoBehaviour
     // ============== Function ==============
     void Update()
     {
+        _streamTimer += Time.deltaTime;
+
         if (_msgtimer > 0)
             _msgtimer -= Time.deltaTime;
         else
@@ -87,8 +91,12 @@ public class ChatManager : MonoBehaviour
 
     private void DisplayChatMsg(string chatName, string chatMsg)
     {
+        int seconds = ((int)_streamTimer % 60);
+        int minutes = ((int)_streamTimer / 60);
+        string timestamp = string.Format("{0:00}:{1:00}", minutes, seconds);
+
         TextChatMsg msg = Instantiate(_chatMsgPref, _chatArea).GetComponentInChildren<TextChatMsg>();
-        msg.Setup("00:00", chatName, chatMsg, this);
+        msg.Setup(timestamp, chatName, chatMsg, this);
 
         _activeChatList.Add(msg);
 
