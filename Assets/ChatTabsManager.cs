@@ -11,6 +11,8 @@ public class ChatTabsManager : MonoBehaviour
 {
     [SerializeField] const string heh = "";
     [SerializeField] private TextMeshProUGUI _accountNameTextBox;
+    [SerializeField] private TextMeshProUGUI _messageTextBox;
+    [SerializeField] private TextMeshProUGUI _TimeStampTextBox;
     [SerializeField] private TextMeshProUGUI _rulesTextBox;
     [SerializeField] private GameObject _modToolsTab;
     [SerializeField] private GameObject _rulesTab;
@@ -50,10 +52,12 @@ public class ChatTabsManager : MonoBehaviour
         RemoveRule("No spamming");
     }
 
-    public void SetTargetAccount(string s)
+    public void SetTargetAccount(string name, string timeStamp, string message)
     {
-        _targetAccountName = s;
-        _accountNameTextBox.text = s;
+        _targetAccountName = name;
+        _accountNameTextBox.text = name;
+        _messageTextBox.text = "\"" + message + "\"";
+        _TimeStampTextBox.text = timeStamp;
     }
 
     public void ModAction(int i)
