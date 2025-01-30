@@ -29,6 +29,11 @@ public class StreamerDialogueManager : MonoBehaviour
         
     }
 
+    //Take a random amount of seconds for streamer to talk
+    //Take a random SO from the list and get the dialogue
+    //Activate the dialogue box that is off and put the SO inside of it
+    //wait for certain amount of seconds
+    //set the dialogue active false again and reset the while loop
     IEnumerator showDialogue()
     {
         
