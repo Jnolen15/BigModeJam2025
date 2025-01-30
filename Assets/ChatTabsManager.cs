@@ -14,9 +14,14 @@ public class ChatTabsManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _messageTextBox;
     [SerializeField] private TextMeshProUGUI _TimeStampTextBox;
     [SerializeField] private TextMeshProUGUI _rulesTextBox;
+    [SerializeField] private Image _buddyStatusImage;
     [SerializeField] private GameObject _modToolsTab;
     [SerializeField] private GameObject _rulesTab;
+    [SerializeField] private GameObject _buddyStatus;
     [SerializeField] private String _targetAccountName;
+    [SerializeField] private Sprite _nonBuddyIcon;
+    [SerializeField] private Sprite _buddyIcon;
+    [SerializeField] private Sprite _veryImportantBuddyIcon;
     public List<string> RulesList = new List<string>();
 
     public enum PunishementType
@@ -27,6 +32,13 @@ public class ChatTabsManager : MonoBehaviour
         Make_NonBuddy,
         Make_Buddy,
         Make_VIB
+    }
+
+    public enum BuddyStatus
+    {
+        Non_Buddy,
+        Buddy,
+        VIB
     }
 
     public delegate void ChatTabManagerEvent(PunishementType p);
@@ -50,14 +62,34 @@ public class ChatTabsManager : MonoBehaviour
         AddRule("Coping is mandatory");
 
         RemoveRule("No spamming");
+
+        // mod tab testing
+        SetTargetAccount(BuddyStatus.VIB, "BeenanBisBheBest", "4:19", "MODZ SUK");
     }
 
-    public void SetTargetAccount(string name, string timeStamp, string message)
+    public void SetTargetAccount(BuddyStatus b, string name, string timeStamp, string message)
     {
         _targetAccountName = name;
         _accountNameTextBox.text = name;
         _messageTextBox.text = "\"" + message + "\"";
         _TimeStampTextBox.text = timeStamp;
+
+        switch (b) // setting buddy image based on enum reveived
+        {
+            case BuddyStatus.Buddy:
+                _buddyStatusImage.sprite = _nonBuddyIcon;
+                break;
+            case BuddyStatus.Non_Buddy:
+                _buddyStatusImage.sprite = _buddyIcon;
+                break;
+            case BuddyStatus.VIB:
+                _buddyStatusImage.sprite = _veryImportantBuddyIcon;
+                break;
+
+            default:
+                Debug.Log("Invalid buddy status");
+                break;
+        }
     }
 
     public void ModAction(int i)
