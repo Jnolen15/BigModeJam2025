@@ -9,7 +9,8 @@ public class TextChatMsg : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _timeStamp;
     [SerializeField] private TextMeshProUGUI _chatterName;
     [SerializeField] private TextMeshProUGUI _message;
-
+    
+    private float _aliveTime;
     private ChatManager _chatMan;
     
 
@@ -25,6 +26,11 @@ public class TextChatMsg : MonoBehaviour
     }
 
     // ============== Function ==============
+    private void Update()
+    {
+        _aliveTime += Time.deltaTime;
+    }
+
     public void OnClick()
     {
         Debug.Log("Clicked!!!");
@@ -34,5 +40,10 @@ public class TextChatMsg : MonoBehaviour
     public void DestroyMsg()
     {
         Destroy(gameObject);
+    }
+
+    public float GetTimeAlive()
+    {
+        return _aliveTime;
     }
 }
