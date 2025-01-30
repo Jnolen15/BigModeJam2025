@@ -8,9 +8,9 @@ public class StreamerTalkTopicSO : ScriptableObject
 
 
     [TextArea]
-    public string streamerDialogue;
+    public string StreamerDialogue;
 
-    public enum Topics
+    public enum Topic
     {
         Winnig,
         Losing,
@@ -20,5 +20,5 @@ public class StreamerTalkTopicSO : ScriptableObject
 
     }
 
-    public List<Topics> topics;
+    public Topic Topics;
 }
