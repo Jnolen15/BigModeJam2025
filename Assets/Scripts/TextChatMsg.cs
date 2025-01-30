@@ -12,7 +12,9 @@ public class TextChatMsg : MonoBehaviour
     
     private float _aliveTime;
     private ChatManager _chatMan;
-    
+
+    public delegate void ChatEvent(ChatTabsManager.BuddyStatus b, string name, string timeStamp, string message, TextChatMsg chatMsg);
+    public static event ChatEvent OnChatClicked;
 
     // ============== Setup ==============	
     public void Setup(string timeStamp, string chatterName, string msg, ChatManager chatMngr)
@@ -34,7 +36,8 @@ public class TextChatMsg : MonoBehaviour
     public void OnClick()
     {
         Debug.Log("Clicked!!!");
-        _chatMan.BanMe(this);
+
+        OnChatClicked?.Invoke(ChatTabsManager.BuddyStatus.Non_Buddy, _chatterName.text, _timeStamp.text, _message.text, this);
     }
 
     public void DestroyMsg()
@@ -46,4 +49,6 @@ public class TextChatMsg : MonoBehaviour
     {
         return _aliveTime;
     }
+
+    // ============== Helpers ==============
 }

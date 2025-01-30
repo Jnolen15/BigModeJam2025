@@ -26,7 +26,14 @@ public class ChatManager : MonoBehaviour
     // ============== Setup ==============
     private void Start()
     {
+        ChatTabsManager.OnModEvent += BanMsg;
+
         StartStream();
+    }
+
+    public void OnDestroy()
+    {
+        ChatTabsManager.OnModEvent -= BanMsg;
     }
 
     public void StartStream()
@@ -71,7 +78,7 @@ public class ChatManager : MonoBehaviour
         if (!RectContainsAnother(_maskRect, _activeChatList[0].GetComponent<RectTransform>()))
         {
             Debug.Log($"Message went out of bounds! deleting", _activeChatList[0].gameObject);
-            BanMe(_activeChatList[0]);
+            DeleteOldMsg(_activeChatList[0]);
         }
     }
 
@@ -112,8 +119,25 @@ public class ChatManager : MonoBehaviour
         LayoutRebuilder.ForceRebuildLayoutImmediate(_chatArea);
     }
 
-    public void BanMe(TextChatMsg chatMsg)
+    public void DeleteOldMsg(TextChatMsg chatMsg)
     {
+        if (!_activeChatList.Contains(chatMsg))
+        {
+            Debug.LogWarning("Chat message not found in _activeChatList");
+            return;
+        }
+
+        _activeChatList.Remove(chatMsg);
+
+        chatMsg.DestroyMsg();
+    }
+
+    public void BanMsg(ChatTabsManager.PunishementType p, TextChatMsg chatMsg)
+    {
+        // something about punishment here?
+        if (p == ChatTabsManager.PunishementType.Make_Buddy || p == ChatTabsManager.PunishementType.Make_NonBuddy || p == ChatTabsManager.PunishementType.Make_VIB)
+            return;
+        
         if (!_activeChatList.Contains(chatMsg))
         {
             Debug.LogWarning("Chat message not found in _activeChatList");

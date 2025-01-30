@@ -24,6 +24,8 @@ public class ChatTabsManager : MonoBehaviour
     [SerializeField] private Sprite _veryImportantBuddyIcon;
     public List<string> RulesList = new List<string>();
 
+    private TextChatMsg _selectedMsg;
+
     public enum PunishementType
     {
         Timeout,
@@ -41,14 +43,16 @@ public class ChatTabsManager : MonoBehaviour
         VIB
     }
 
-    public delegate void ChatTabManagerEvent(PunishementType p);
-    private static event ChatTabManagerEvent OnModEvent;
+    public delegate void ChatTabManagerEvent(PunishementType p, TextChatMsg chatMsg);
+    public static event ChatTabManagerEvent OnModEvent;
 
 
     // TODO add punishments to rules list
 
     void Start()
     {
+        TextChatMsg.OnChatClicked += SetTargetAccount;
+
         // starting on rules tab
         _modToolsTab.SetActive(false);
         _rulesTab.SetActive(true);
@@ -62,13 +66,16 @@ public class ChatTabsManager : MonoBehaviour
         AddRule("Coping is mandatory");
 
         RemoveRule("No spamming");
-
-        // mod tab testing
-        SetTargetAccount(BuddyStatus.VIB, "BeenanBisBheBest", "4:19", "MODZ SUK");
     }
 
-    public void SetTargetAccount(BuddyStatus b, string name, string timeStamp, string message)
+    public void OnDestroy()
     {
+        TextChatMsg.OnChatClicked -= SetTargetAccount;
+    }
+
+    public void SetTargetAccount(BuddyStatus b, string name, string timeStamp, string message, TextChatMsg chatMsg)
+    {
+        _selectedMsg = chatMsg;
         _targetAccountName = name;
         _accountNameTextBox.text = name;
         _messageTextBox.text = "\"" + message + "\"";
@@ -90,12 +97,14 @@ public class ChatTabsManager : MonoBehaviour
                 Debug.Log("Invalid buddy status");
                 break;
         }
+
+        ToggleModTab();
     }
 
     public void ModAction(int i)
     {
         Debug.Log("Invoking mod action " + IntToPunishmentType(i) + " on account: " + _targetAccountName);
-        OnModEvent?.Invoke(IntToPunishmentType(i));
+        OnModEvent?.Invoke(IntToPunishmentType(i), _selectedMsg);
         ToggleModTab();
     }
 
