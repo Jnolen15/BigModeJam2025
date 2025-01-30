@@ -18,19 +18,28 @@ public class ChatManager : MonoBehaviour
     [SerializeField] private List<UsernamesSO> _usernameList = new List<UsernamesSO>();
 
     private float _streamTimer;
+    private bool _streamStarted;
 
     // For testing
     [SerializeField] private float _msgtimer;
 
     // ============== Setup ==============
-    void Start()
+    private void Start()
     {
+        StartStream();
+    }
 
+    public void StartStream()
+    {
+        _streamStarted = true;
     }
 
     // ============== Function ==============
     void Update()
     {
+        if (!_streamStarted)
+            return;
+
         _streamTimer += Time.deltaTime;
 
         if (_msgtimer > 0)

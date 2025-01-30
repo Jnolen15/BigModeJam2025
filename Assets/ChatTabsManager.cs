@@ -96,6 +96,7 @@ public class ChatTabsManager : MonoBehaviour
     {
         Debug.Log("Invoking mod action " + IntToPunishmentType(i) + " on account: " + _targetAccountName);
         OnModEvent?.Invoke(IntToPunishmentType(i));
+        ToggleModTab();
     }
 
     public void ToggleRulesTab() // toggles tab
