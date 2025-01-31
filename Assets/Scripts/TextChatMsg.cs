@@ -13,8 +13,9 @@ public class TextChatMsg : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _message;
     [SerializeField] private Image _buddyIcon;
     [SerializeField] private Sprite _moderatorIcon;
+    private CommentsSO _commentSO;
+    private UsernamesSO _usernameSO;
 
-    
     private float _aliveTime;
     private ChatManager _chatMan;
     private bool _notClickable;
@@ -23,12 +24,15 @@ public class TextChatMsg : MonoBehaviour
     public static event ChatEvent OnChatClicked;
 
     // ============== Setup ==============	
-    public void Setup(string timeStamp, string chatterName, Color chatterColor, string msg, ChatManager chatMngr)
+    public void Setup(UsernamesSO username, CommentsSO comment, string timeStamp, ChatManager chatMngr)
     {
+        _commentSO = comment;
+        _usernameSO = username;
+
         _timeStamp.text = timeStamp;
-        _chatterName.text = chatterName + ":";
-        _chatterName.color = chatterColor;
-        _message.text = msg;
+        _chatterName.text = username.GetUsername() + ":";
+        _chatterName.color = username.ChatterColor;
+        _message.text = comment.Message;
         _chatMan = chatMngr;
 
         // Something here for buddy badge
@@ -74,6 +78,16 @@ public class TextChatMsg : MonoBehaviour
     }
 
     // ============== Helpers ==============
+    public CommentsSO GetComment()
+    {
+        return _commentSO;
+    }
+
+    public UsernamesSO GetUsername()
+    {
+        return _usernameSO;
+    }
+
     public float GetTimeAlive()
     {
         return _aliveTime;
@@ -81,7 +95,7 @@ public class TextChatMsg : MonoBehaviour
 
     public string GetMessageText()
     {
-        return _message.text;
+        return _commentSO.Message;
     }
 
     public string GetTimeStamp()
@@ -91,13 +105,11 @@ public class TextChatMsg : MonoBehaviour
 
     public string GetAccountName()
     {
-        return _chatterName.text;
+        return _usernameSO.GetUsername();
     }
 
     public ChatTabsManager.BuddyStatus GetBuddyStatus()
     {
         return _buddyStatus;
     }
-
-
 }

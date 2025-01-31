@@ -65,7 +65,7 @@ public class ChatManager : MonoBehaviour
         int randComment = Random.Range(0, _commentsList.Count);
         int randUsername = Random.Range(0, _usernameList.Count);
 
-        DisplayChatMsg(_usernameList[randUsername].GetUsername(), _usernameList[randUsername].ChatterColor, _commentsList[randComment].Message);
+        DisplayChatMsg(_usernameList[randUsername], _commentsList[randComment]);
     }
 
     private void LookForPastMsgs()
@@ -77,10 +77,7 @@ public class ChatManager : MonoBehaviour
             return;
 
         if (!RectContainsAnother(_maskRect, _activeChatList[0].GetComponent<RectTransform>()))
-        {
-            Debug.Log($"Message went out of bounds! deleting", _activeChatList[0].gameObject);
-            DeleteOldMsg(_activeChatList[0]);
-        }
+            TestMessageForViolations(_activeChatList[0]);
     }
 
     public static bool RectContainsAnother(RectTransform first, RectTransform second)
@@ -106,14 +103,14 @@ public class ChatManager : MonoBehaviour
         return topLeftCornerIn || botRightCornerIn;
     }
 
-    private void DisplayChatMsg(string chatName, Color chatterColor, string chatMsg)
+    private void DisplayChatMsg(UsernamesSO username, CommentsSO comment)
     {
         int seconds = ((int)_streamTimer % 60);
         int minutes = ((int)_streamTimer / 60);
         string timestamp = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         TextChatMsg msg = Instantiate(_chatMsgPref, _chatArea).GetComponentInChildren<TextChatMsg>();
-        msg.Setup(timestamp, chatName, chatterColor, chatMsg, this);
+        msg.Setup(username, comment, timestamp, this);
 
         _activeChatList.Add(msg);
 
@@ -134,6 +131,13 @@ public class ChatManager : MonoBehaviour
         LayoutRebuilder.ForceRebuildLayoutImmediate(_chatArea);
 
         LookForPastMsgs();
+    }
+
+    private void TestMessageForViolations(TextChatMsg chatMsg)
+    {
+        // if violation found do something
+
+        DeleteOldMsg(chatMsg);
     }
 
     public void DeleteOldMsg(TextChatMsg chatMsg)
