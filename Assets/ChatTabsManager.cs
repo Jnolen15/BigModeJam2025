@@ -65,6 +65,11 @@ public class ChatTabsManager : MonoBehaviour
         _reportsTab.SetActive(false);
         _rulesTab.SetActive(true);
 
+        // disabling notification bulles
+        _modNotification.SetActive(false);
+        _rulesNotification.SetActive(false);
+        _reportsNotification.SetActive(false);
+
         // initializing rules list
         GenerateRuleList();
 
@@ -126,7 +131,10 @@ public class ChatTabsManager : MonoBehaviour
     {
         tab.SetActive(!tab.activeSelf);
 
-        //// toggling other tabs closed
+        // closing notifications
+        // TODO: close notifications on CLOSE, not open
+
+        // toggling other tabs closed
         var tempArray = new GameObject[] { _rulesTab, _modToolsTab, _reportsTab };
         foreach (GameObject temp in tempArray)
         {
@@ -140,23 +148,12 @@ public class ChatTabsManager : MonoBehaviour
         //if (temp.activeSelf && tab != temp) temp.SetActive(false);
         //temp = _reportsTab;
         //if (temp.activeSelf && tab != temp) temp.SetActive(false);
-
-
-    }
-
-    public void  ToggleModToolsTab()
-    {
-        _modToolsTab.SetActive(!_modToolsTab.activeSelf);
-
-        // toggling other tabs closed
-        if (_rulesTab.activeSelf) _rulesTab.SetActive(false);
-        if (_reportsTab.activeSelf) _reportsTab.SetActive(false);
     }
 
     private void GenerateRuleList()
     {
+        // generating string
         string rulesList = "";
-
         int iterator = 0;
         foreach(string s in RulesList)
         {
@@ -165,6 +162,9 @@ public class ChatTabsManager : MonoBehaviour
         }
 
         _rulesTextBox.text = rulesList;
+
+        // Activating tab notification
+        ActivateNotification(_rulesNotification);
     }
 
     public void AddRule(string s) // adds rule to end of the list
@@ -184,9 +184,9 @@ public class ChatTabsManager : MonoBehaviour
         g.SetActive(true);
     }
 
-    public void HideeNotification(GameObject g) // hides notification icon
+    public void HideNotification(GameObject g) // hides notification icon
     {
-        g.SetActive(false);
+         if(g.activeSelf) g.SetActive(false);
     }
 
 
