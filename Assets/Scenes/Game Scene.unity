@@ -705,11 +705,9 @@ MonoBehaviour:
   _buddyStatusImage: {fileID: 698989568}
   _modToolsTab: {fileID: 452041089}
   _rulesTab: {fileID: 929275914}
-  _buddyStatus: {fileID: 0}
-  _targetAccountName: 
-  _nonBuddyIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  _buddyIcon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  _veryImportantBuddyIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  _nonBuddyIcon: {fileID: 21300000, guid: 480ecd1bffa6c6040a315ea62c9f5721, type: 3}
+  _buddyIcon: {fileID: 21300000, guid: cce8466dd35aec2458b0a296b5a7c78c, type: 3}
+  _veryImportantBuddyIcon: {fileID: 21300000, guid: 91e6cf7d1315f7f4494d88b889383984, type: 3}
   RulesList: []
 --- !u!1 &243279136
 GameObject:
@@ -1016,7 +1014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.023449754, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.4999847, y: 0}
+  m_AnchoredPosition: {x: -4.5, y: 0}
   m_SizeDelta: {x: -9.923201, y: 4.0139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &653602950

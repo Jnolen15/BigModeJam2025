@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
+using System.Linq;
 
 public class TextChatMsg : MonoBehaviour
 {
@@ -11,8 +13,12 @@ public class TextChatMsg : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _chatterName;
     [SerializeField] private ChatTabsManager.BuddyStatus _buddyStatus = ChatTabsManager.BuddyStatus.Non_Buddy; // default to non-buddy
     [SerializeField] private TextMeshProUGUI _message;
-    [SerializeField] private Image _buddyIcon;
+    [SerializeField] private Image _buddyImage;
     [SerializeField] private Sprite _moderatorIcon;
+    [SerializeField] private Sprite _nonBuddyIcon;
+    [SerializeField] private Sprite _buddyIcon;
+    [SerializeField] private Sprite _vibIcon;
+
     private CommentsSO _commentSO;
     private UsernamesSO _usernameSO;
 
@@ -36,6 +42,26 @@ public class TextChatMsg : MonoBehaviour
         _chatMan = chatMngr;
 
         // Something here for buddy badge
+        // TODO make scriptable objects have buddy statuses instead of random
+        switch (UnityEngine.Random.Range(0, 2))
+        {
+            case 0:
+                _buddyStatus = ChatTabsManager.BuddyStatus.Non_Buddy;
+                _buddyImage.sprite = _nonBuddyIcon;
+                break;
+            case 1:
+                _buddyStatus = ChatTabsManager.BuddyStatus.Buddy;
+                _buddyImage.sprite = _buddyIcon;
+                break;
+            case 2:
+                _buddyStatus = ChatTabsManager.BuddyStatus.VIB;
+                _buddyImage.sprite = _vibIcon;
+                break;
+            default:
+                Debug.LogWarning("Invalid int for Buddy status conversion");
+                _buddyStatus = ChatTabsManager.BuddyStatus.Non_Buddy;
+                break;
+        }
     }
 
     public void SetupModMsg(string timeStamp, string msg, ChatManager chatMngr)
@@ -47,8 +73,8 @@ public class TextChatMsg : MonoBehaviour
         _message.text = msg;
         _chatMan = chatMngr;
 
-        _buddyIcon.sprite = _moderatorIcon;
-        _buddyIcon.color = Color.red;
+        _buddyImage.sprite = _moderatorIcon;
+        _buddyImage.color = Color.red;
     }
 
     // ============== Function ==============

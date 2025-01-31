@@ -101,7 +101,13 @@ public class ChatTabsManager : MonoBehaviour
 
     public void ModAction(int i)
     {
-        Debug.Log("Invoking mod action " + IntToPunishmentType(i) + " on account: " + _selectedMsg.GetAccountName());
+        if (_selectedMsg == null)
+        {
+            Debug.LogWarning("Targeted message no longer exists");
+        } else
+        {
+            Debug.Log("Invoking mod action " + IntToPunishmentType(i) + " on account: " + _selectedMsg.GetAccountName());
+        }
         OnModEvent?.Invoke(IntToPunishmentType(i), _selectedMsg);
         ToggleModTab();
     }
@@ -167,7 +173,7 @@ public class ChatTabsManager : MonoBehaviour
                 return PunishementType.Make_VIB;
 
             default:
-                Debug.Log("Invalid int for enum conversion");
+                Debug.LogWarning("Invalid int for enum conversion");
                 return PunishementType.Timeout;
         }
     }

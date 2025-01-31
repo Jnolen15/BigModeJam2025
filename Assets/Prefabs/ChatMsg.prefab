@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6876483, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -706,6 +706,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeStamp: {fileID: 3731818786112700641}
   _chatterName: {fileID: 3259286432370987008}
+  _buddyStatus: 0
   _message: {fileID: 8981925347783960802}
-  _buddyIcon: {fileID: 7823828625034135386}
+  _buddyImage: {fileID: 7823828625034135386}
   _moderatorIcon: {fileID: 21300000, guid: e752e2ec81ebbbd4192edc0a16a846e2, type: 3}
+  _nonBuddyIcon: {fileID: 21300000, guid: 480ecd1bffa6c6040a315ea62c9f5721, type: 3}
+  _buddyIcon: {fileID: 21300000, guid: cce8466dd35aec2458b0a296b5a7c78c, type: 3}
+  _vibIcon: {fileID: 21300000, guid: 91e6cf7d1315f7f4494d88b889383984, type: 3}
