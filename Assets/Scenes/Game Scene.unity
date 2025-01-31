@@ -1777,7 +1777,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 4
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3237,9 +3237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "1) No Spamming - ban\n2) No Foul Language - ban\n3) No Spam - perma ban
-    \n4) No ASCII ART - ban \n5) No bad vibes - timeout\n6) No posting on even number
-    timestamps - timeout"
+  m_text: U done fucked up buddy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7cd118ad7b062a6498c4be5550207afb, type: 2}
   m_sharedMaterial: {fileID: -4552028524898917080, guid: 7cd118ad7b062a6498c4be5550207afb, type: 2}
@@ -3272,7 +3270,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 5
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -4343,7 +4341,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Chat Rules:'
+  m_text: Reports
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7cd118ad7b062a6498c4be5550207afb, type: 2}
   m_sharedMaterial: {fileID: -4552028524898917080, guid: 7cd118ad7b062a6498c4be5550207afb, type: 2}
@@ -4376,7 +4374,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 4
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
