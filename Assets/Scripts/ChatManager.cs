@@ -11,7 +11,7 @@ public class ChatManager : MonoBehaviour
     [SerializeField] private GameObject _chatMsgPref;
     [SerializeField] private RectTransform _chatArea;
     [SerializeField] public RectTransform _maskRect;
-    [SerializeField] private List<TextChatMsg> _activeChatList = new List<TextChatMsg>();
+    [SerializeField] public Vector2 _chatSpeed;
 
     [Header("Chats")]
     [SerializeField] private List<CommentsSO> _commentsList = new List<CommentsSO>();
@@ -19,6 +19,7 @@ public class ChatManager : MonoBehaviour
 
     private float _streamTimer;
     private bool _streamStarted;
+    private List<TextChatMsg> _activeChatList = new List<TextChatMsg>();
 
     // For testing
     [SerializeField] private float _msgtimer;
@@ -53,7 +54,7 @@ public class ChatManager : MonoBehaviour
             _msgtimer -= Time.deltaTime;
         else
         {
-            _msgtimer = Random.Range(1, 3);
+            _msgtimer = Random.Range(_chatSpeed.x, _chatSpeed.y);
             SendNewChat();
             LookForPastMsgs();
         }

@@ -107,7 +107,7 @@ MonoBehaviour:
   _chatMsgPref: {fileID: 8355619242113732483, guid: 550d3115246a00b41873058695003f5c, type: 3}
   _chatArea: {fileID: 3291216339160312891}
   _maskRect: {fileID: 4585331162043138005}
-  _activeChatList: []
+  _chatSpeed: {x: 0.2, y: 1}
   _commentsList:
   - {fileID: 11400000, guid: e48cc3ef3f888684c9b97ac273e333aa, type: 2}
   - {fileID: 11400000, guid: 40a61215e1abbe64faeb8a9f9d99cad3, type: 2}
@@ -123,6 +123,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d626e0cdf2af3d2478fafb8b5aebd296, type: 2}
   - {fileID: 11400000, guid: 81590291632fe904b95784e238129eb3, type: 2}
   - {fileID: 11400000, guid: c76016d791e6d3341b3cbba6c32b2069, type: 2}
+  - {fileID: 11400000, guid: fa07d9f3b31e3f046af27184ca359ed9, type: 2}
+  - {fileID: 11400000, guid: 7f06364130e25134d97703a3bfdc1960, type: 2}
+  - {fileID: 11400000, guid: 9fa792d3116d6354d864364e375e31e1, type: 2}
   _usernameList:
   - {fileID: 11400000, guid: c3fa33d02268ebd4da164af5e1b00a60, type: 2}
   - {fileID: 11400000, guid: d0e8eae3156ce9148b6e8cff321929a1, type: 2}
