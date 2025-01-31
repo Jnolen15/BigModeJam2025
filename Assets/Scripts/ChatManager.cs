@@ -14,8 +14,14 @@ public class ChatManager : MonoBehaviour
     [SerializeField] public Vector2 _chatSpeed;
 
     [Header("Chats")]
-    [SerializeField] private List<CommentsSO> _commentsList = new List<CommentsSO>();
     [SerializeField] private List<UsernamesSO> _usernameList = new List<UsernamesSO>();
+    [SerializeField] private List<CommentsSO> _generalMSGList = new List<CommentsSO>();
+    [SerializeField] private List<CommentsSO> _profanityMSGList = new List<CommentsSO>();
+    [SerializeField] private List<CommentsSO> _linksMSGList = new List<CommentsSO>();
+    [SerializeField] private List<CommentsSO> _promotingMSGList = new List<CommentsSO>();
+    [SerializeField] private List<CommentsSO> _capsMSGList = new List<CommentsSO>();
+    [SerializeField] private List<CommentsSO> _meanMSGList = new List<CommentsSO>();
+    [SerializeField] private List<CommentsSO> _over30MSGList = new List<CommentsSO>();
 
     private float _streamTimer;
     private bool _streamStarted;
@@ -62,10 +68,26 @@ public class ChatManager : MonoBehaviour
 
     private void SendNewChat()
     {
-        int randComment = Random.Range(0, _commentsList.Count);
         int randUsername = Random.Range(0, _usernameList.Count);
+        int randComment = 0;
 
-        DisplayChatMsg(_usernameList[randUsername], _commentsList[randComment]);
+        int rand = Random.Range(0, 12);
+        if(rand < 5)
+            randComment = Random.Range(0, _generalMSGList.Count);
+        else if (rand == 6)
+            randComment = Random.Range(0, _profanityMSGList.Count);
+        else if (rand == 7)
+            randComment = Random.Range(0, _linksMSGList.Count);
+        else if (rand == 8)
+            randComment = Random.Range(0, _promotingMSGList.Count);
+        else if (rand == 9)
+            randComment = Random.Range(0, _capsMSGList.Count);
+        else if (rand == 10)
+            randComment = Random.Range(0, _meanMSGList.Count);
+        else if (rand == 11)
+            randComment = Random.Range(0, _over30MSGList.Count);
+
+        DisplayChatMsg(_usernameList[randUsername], _generalMSGList[randComment]);
     }
 
     private void LookForPastMsgs()

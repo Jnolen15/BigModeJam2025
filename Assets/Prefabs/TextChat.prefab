@@ -108,7 +108,17 @@ MonoBehaviour:
   _chatArea: {fileID: 3291216339160312891}
   _maskRect: {fileID: 4585331162043138005}
   _chatSpeed: {x: 0.2, y: 1}
-  _commentsList:
+  _usernameList:
+  - {fileID: 11400000, guid: c3fa33d02268ebd4da164af5e1b00a60, type: 2}
+  - {fileID: 11400000, guid: d0e8eae3156ce9148b6e8cff321929a1, type: 2}
+  - {fileID: 11400000, guid: 72054ea382c49cb418b51177a43b32d4, type: 2}
+  - {fileID: 11400000, guid: 5d48be0ed6b7330409f8b4699a86ccf1, type: 2}
+  - {fileID: 11400000, guid: a7802cd4ac7e88648bb6acb591ce84aa, type: 2}
+  - {fileID: 11400000, guid: 1824ad721d0e6214899e6ca9a89ef86f, type: 2}
+  - {fileID: 11400000, guid: fe190d6540aa9d947a85995863e2a4f5, type: 2}
+  - {fileID: 11400000, guid: 669d37078b8b4664c808a52e7ad6e7a9, type: 2}
+  - {fileID: 11400000, guid: 5977d8dac41420b429c31c653d4365ed, type: 2}
+  _generalMSGList:
   - {fileID: 11400000, guid: a93476e5c371f2d429092d6bc474fbd2, type: 2}
   - {fileID: 11400000, guid: 42582c8921595394d83d9fd242b8a45c, type: 2}
   - {fileID: 11400000, guid: 41898eac2d219c24db6769a3daf8782a, type: 2}
@@ -169,8 +179,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 426c01e221d8fed4d82cda9146124c9b, type: 2}
   - {fileID: 11400000, guid: d626e0cdf2af3d2478fafb8b5aebd296, type: 2}
   - {fileID: 11400000, guid: 57b816a9c7b236748b9e44ce48cc28f1, type: 2}
-  - {fileID: 11400000, guid: 49bb1f9d17123b74f882a8cf733fc1ad, type: 2}
-  - {fileID: 11400000, guid: eadbc8c2b7ec46e41b6de7cf268769b2, type: 2}
+  _profanityMSGList:
+  - {fileID: 11400000, guid: b4859a1f9151c084284c2c536011f024, type: 2}
+  - {fileID: 11400000, guid: 008fae2e7fabb1e4bad842fe72c612e1, type: 2}
+  - {fileID: 11400000, guid: be9aa5c5d9faed242a012526bdf30b5a, type: 2}
+  - {fileID: 11400000, guid: f55aa22800908ba4ca18e090b4b9b4c1, type: 2}
+  - {fileID: 11400000, guid: 331e3caf667ce95458dd840bd424a480, type: 2}
+  - {fileID: 11400000, guid: edb34ec804f5df54e87b408b86fa7c9f, type: 2}
+  - {fileID: 11400000, guid: 21b5a26bdf543a54da076b62a641f879, type: 2}
+  _linksMSGList:
+  - {fileID: 11400000, guid: a1347f080082bd14cb6f622378fee422, type: 2}
+  - {fileID: 11400000, guid: fe3135d104bc79f4191d91f6297d466b, type: 2}
+  - {fileID: 11400000, guid: bdff9bbaf529fa14f96fdcd503b09832, type: 2}
+  - {fileID: 11400000, guid: 368baad918e2045418412efbc0441c69, type: 2}
+  _promotingMSGList:
+  - {fileID: 11400000, guid: 6d2d021cdacbfa042b85537b025e12bf, type: 2}
+  - {fileID: 11400000, guid: c01eb15c15bd73c4a91310284aee5f56, type: 2}
+  - {fileID: 11400000, guid: bf2db7f9b4c1a834fb7c714f4681f38b, type: 2}
+  _capsMSGList:
   - {fileID: 11400000, guid: ab04f587aabcdca4aaccd5d4765c8b9d, type: 2}
   - {fileID: 11400000, guid: 0716fc088a9b65c49b3a33243ae7bc0e, type: 2}
   - {fileID: 11400000, guid: 87866c0bc4cdc0c4dafa648bb74c0f22, type: 2}
@@ -198,10 +224,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f85642f3b6a14c4409242e89a986db2c, type: 2}
   - {fileID: 11400000, guid: 67a33246fd3ffe143a42e3a5161c52e2, type: 2}
   - {fileID: 11400000, guid: 025d24ae1dd58f145813920ca2e46bf2, type: 2}
-  - {fileID: 11400000, guid: a1347f080082bd14cb6f622378fee422, type: 2}
-  - {fileID: 11400000, guid: fe3135d104bc79f4191d91f6297d466b, type: 2}
-  - {fileID: 11400000, guid: bdff9bbaf529fa14f96fdcd503b09832, type: 2}
-  - {fileID: 11400000, guid: 368baad918e2045418412efbc0441c69, type: 2}
+  _meanMSGList:
   - {fileID: 11400000, guid: b7082a294b249cf47ab1ca509aed7f13, type: 2}
   - {fileID: 11400000, guid: a0e635d563bace74cbdad141c01d0d35, type: 2}
   - {fileID: 11400000, guid: fc0a8ce6b862ce144b832a2c5163f541, type: 2}
@@ -211,35 +234,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 92cb93ac44d6f414f8b5719def9ba3c2, type: 2}
   - {fileID: 11400000, guid: 487d0e06b4900f8478d4c55036726179, type: 2}
   - {fileID: 11400000, guid: a4b088f2ad6ccbc4daf3601ffcbfdff0, type: 2}
-  - {fileID: 11400000, guid: b7082a294b249cf47ab1ca509aed7f13, type: 2}
-  - {fileID: 11400000, guid: a0e635d563bace74cbdad141c01d0d35, type: 2}
-  - {fileID: 11400000, guid: fc0a8ce6b862ce144b832a2c5163f541, type: 2}
-  - {fileID: 11400000, guid: c8ccdc2383012834589be7df387f4b7a, type: 2}
-  - {fileID: 11400000, guid: b9c02f6ee0cd4d84d936a85bc1df77bb, type: 2}
-  - {fileID: 11400000, guid: aa6ad8fb8e0e96a4bb0cf2e3e9ff6fcf, type: 2}
-  - {fileID: 11400000, guid: 92cb93ac44d6f414f8b5719def9ba3c2, type: 2}
-  - {fileID: 11400000, guid: 487d0e06b4900f8478d4c55036726179, type: 2}
-  - {fileID: 11400000, guid: a4b088f2ad6ccbc4daf3601ffcbfdff0, type: 2}
-  - {fileID: 11400000, guid: 6d2d021cdacbfa042b85537b025e12bf, type: 2}
-  - {fileID: 11400000, guid: c01eb15c15bd73c4a91310284aee5f56, type: 2}
-  - {fileID: 11400000, guid: bf2db7f9b4c1a834fb7c714f4681f38b, type: 2}
-  - {fileID: 11400000, guid: b4859a1f9151c084284c2c536011f024, type: 2}
-  - {fileID: 11400000, guid: 008fae2e7fabb1e4bad842fe72c612e1, type: 2}
-  - {fileID: 11400000, guid: be9aa5c5d9faed242a012526bdf30b5a, type: 2}
-  - {fileID: 11400000, guid: f55aa22800908ba4ca18e090b4b9b4c1, type: 2}
-  - {fileID: 11400000, guid: 331e3caf667ce95458dd840bd424a480, type: 2}
-  - {fileID: 11400000, guid: edb34ec804f5df54e87b408b86fa7c9f, type: 2}
-  - {fileID: 11400000, guid: 21b5a26bdf543a54da076b62a641f879, type: 2}
-  _usernameList:
-  - {fileID: 11400000, guid: c3fa33d02268ebd4da164af5e1b00a60, type: 2}
-  - {fileID: 11400000, guid: d0e8eae3156ce9148b6e8cff321929a1, type: 2}
-  - {fileID: 11400000, guid: 72054ea382c49cb418b51177a43b32d4, type: 2}
-  - {fileID: 11400000, guid: 5d48be0ed6b7330409f8b4699a86ccf1, type: 2}
-  - {fileID: 11400000, guid: a7802cd4ac7e88648bb6acb591ce84aa, type: 2}
-  - {fileID: 11400000, guid: 1824ad721d0e6214899e6ca9a89ef86f, type: 2}
-  - {fileID: 11400000, guid: fe190d6540aa9d947a85995863e2a4f5, type: 2}
-  - {fileID: 11400000, guid: 669d37078b8b4664c808a52e7ad6e7a9, type: 2}
-  - {fileID: 11400000, guid: 5977d8dac41420b429c31c653d4365ed, type: 2}
+  - {fileID: 11400000, guid: 003fdc62c1759a948bec44afb9ca47e7, type: 2}
+  _over30MSGList:
+  - {fileID: 11400000, guid: 49bb1f9d17123b74f882a8cf733fc1ad, type: 2}
+  - {fileID: 11400000, guid: eadbc8c2b7ec46e41b6de7cf268769b2, type: 2}
   _msgtimer: 0
 --- !u!1 &6712670369931175198
 GameObject:
