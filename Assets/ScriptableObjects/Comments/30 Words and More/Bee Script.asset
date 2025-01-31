@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22aafa7a0e28fe488778183f1b68b21, type: 3}
+  m_Name: Bee Script
+  m_EditorClassIdentifier: 
+  Message: 'Bee Movie
+
+    By Jerry Seinfeld
+
+    (Black screen with text; The
+    sound of buzzing bees can be heard)
+
+    NARRATOR:
+
+    According to all known
+    laws of aviation, there is no way a bee should be able to fly. Its wings are
+    too small to get its fat little body off the ground. The bee, of course, flies
+    anyway because bees don''t care what humans think is impossible.
+
+'
+  violations: 05000000

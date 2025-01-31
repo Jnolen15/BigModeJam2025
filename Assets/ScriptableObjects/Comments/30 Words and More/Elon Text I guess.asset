@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22aafa7a0e28fe488778183f1b68b21, type: 3}
+  m_Name: Elon Text I guess
+  m_EditorClassIdentifier: 
+  Message: "Hey so like I\u2019ve been thinking and like honestly\u2026. F#%@ the
+    rich.  There is no way for someone to get as wealthy as Elon Musk without exploiting
+    the working class, which demonstrates a complete lack of empathy for other human
+    beings, and only being interested in filling their own pockets.  And on the topic,
+    what the hell is wrong with Elon Musk?  Why did he do what we all know he did
+    at the inauguration?  Also his Elden Ring build sucks and he clearly paid someone
+    to boost his POE 2 account just to pretend to be some kind of god gamer which
+    is pretty pathetic in my opinion."
+  violations: 05000000
