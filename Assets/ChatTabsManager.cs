@@ -6,10 +6,12 @@ using UnityEngine.UI;
 using System;
 using Unity.VisualScripting;
 using JetBrains.Annotations;
+using UnityEngine.Playables;
 
 public class ChatTabsManager : MonoBehaviour
 {
-    [SerializeField] const string heh = "";
+    [SerializeField] const string heh = ""; // lmao
+    // Object/Component References
     [SerializeField] private TextMeshProUGUI _accountNameTextBox;
     [SerializeField] private TextMeshProUGUI _messageTextBox;
     [SerializeField] private TextMeshProUGUI _TimeStampTextBox;
@@ -17,6 +19,13 @@ public class ChatTabsManager : MonoBehaviour
     [SerializeField] private Image _buddyStatusImage;
     [SerializeField] private GameObject _modToolsTab;
     [SerializeField] private GameObject _rulesTab;
+    [SerializeField] private GameObject _reportsTab;
+    [SerializeField] private GameObject _rulesNotification;
+    [SerializeField] private GameObject _reportsNotification;
+    [SerializeField] private GameObject _modNotification;
+
+
+    // Asset references
     [SerializeField] private Sprite _nonBuddyIcon;
     [SerializeField] private Sprite _buddyIcon;
     [SerializeField] private Sprite _veryImportantBuddyIcon;
@@ -53,6 +62,7 @@ public class ChatTabsManager : MonoBehaviour
 
         // starting on rules tab
         _modToolsTab.SetActive(false);
+        _reportsTab.SetActive(false);
         _rulesTab.SetActive(true);
 
         // initializing rules list
@@ -96,7 +106,7 @@ public class ChatTabsManager : MonoBehaviour
                 break;
         }
 
-        ToggleModTab();
+        ToggleTab(_modToolsTab);
     }
 
     public void ModAction(int i)
@@ -109,21 +119,38 @@ public class ChatTabsManager : MonoBehaviour
             Debug.Log("Invoking mod action " + IntToPunishmentType(i) + " on account: " + _selectedMsg.GetAccountName());
         }
         OnModEvent?.Invoke(IntToPunishmentType(i), _selectedMsg);
-        ToggleModTab();
+        ToggleTab(_modToolsTab);
     }
 
-    public void ToggleRulesTab() // toggles tab
+    public void ToggleTab(GameObject tab) // toggles selected tab and closes all other ones that are open
     {
-        _rulesTab.SetActive(!_rulesTab.activeSelf);
-        // close other tabs if they're open
-        if (_modToolsTab.activeSelf) _modToolsTab.SetActive(false); 
+        tab.SetActive(!tab.activeSelf);
+
+        //// toggling other tabs closed
+        var tempArray = new GameObject[] { _rulesTab, _modToolsTab, _reportsTab };
+        foreach (GameObject temp in tempArray)
+        {
+            if (temp.activeSelf && tab != temp) temp.SetActive(false);
+        }
+
+        // this might be more efficient
+        //GameObject temp = _rulesTab;
+        //if (temp.activeSelf && tab != temp) temp.SetActive(false);
+        //temp = _modToolsTab;
+        //if (temp.activeSelf && tab != temp) temp.SetActive(false);
+        //temp = _reportsTab;
+        //if (temp.activeSelf && tab != temp) temp.SetActive(false);
+
+
     }
 
-    public void ToggleModTab() // toggles tab
+    public void  ToggleModToolsTab()
     {
         _modToolsTab.SetActive(!_modToolsTab.activeSelf);
-        // close other tabs if they're open
+
+        // toggling other tabs closed
         if (_rulesTab.activeSelf) _rulesTab.SetActive(false);
+        if (_reportsTab.activeSelf) _reportsTab.SetActive(false);
     }
 
     private void GenerateRuleList()
@@ -150,6 +177,16 @@ public class ChatTabsManager : MonoBehaviour
     {
         RulesList.Remove(s);
         GenerateRuleList();
+    }
+
+    public void ActivateNotification(GameObject g) // activates notification icon (gameobject)
+    {
+        g.SetActive(true);
+    }
+
+    public void HideeNotification(GameObject g) // hides notification icon
+    {
+        g.SetActive(false);
     }
 
 
