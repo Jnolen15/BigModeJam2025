@@ -23,12 +23,13 @@ public class ChatManager : MonoBehaviour
     [SerializeField] private List<CommentsSO> _meanMSGList = new List<CommentsSO>();
     [SerializeField] private List<CommentsSO> _over30MSGList = new List<CommentsSO>();
 
+    private float _msgtimer;
     private float _streamTimer;
     private bool _streamStarted;
     private List<TextChatMsg> _activeChatList = new List<TextChatMsg>();
 
-    // For testing
-    [SerializeField] private float _msgtimer;
+    public delegate void ChatManagerEvent(CommentsSO.Violations violation, TextChatMsg chatMsg);
+    public static event ChatManagerEvent OnMissedMessage;
 
     // ============== Setup ==============
     private void Start()
@@ -165,6 +166,7 @@ public class ChatManager : MonoBehaviour
                 Debug.Log("Violating message was let past!! \n " + comment.Message);
 
                 // Send violation message to reports area
+                OnMissedMessage?.Invoke(violations[0], chatMsg);
             }
         }
 

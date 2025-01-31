@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Comment")]
 public class CommentsSO : ScriptableObject
 {
-    [TextArea]
+    [TextArea(15, 20)]
     public string Message;
 
     public enum Violations

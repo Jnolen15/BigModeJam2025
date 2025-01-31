@@ -77,6 +77,30 @@ public class TextChatMsg : MonoBehaviour
         _buddyImage.color = Color.red;
     }
 
+    public void SetupReportMsg(UsernamesSO username, string comment, ChatTabsManager.BuddyStatus buddyStat, string timeStamp)
+    {
+        _timeStamp.text = timeStamp;
+        _chatterName.text = username.GetUsername() + ":";
+        _chatterName.color = username.ChatterColor;
+        _message.text = comment;
+
+        switch (buddyStat)
+        {
+            case ChatTabsManager.BuddyStatus.Non_Buddy:
+                _buddyImage.sprite = _nonBuddyIcon;
+                break;
+            case ChatTabsManager.BuddyStatus.Buddy:
+                _buddyImage.sprite = _buddyIcon;
+                break;
+            case ChatTabsManager.BuddyStatus.VIB:
+                _buddyImage.sprite = _vibIcon;
+                break;
+            default:
+                Debug.LogWarning("Invalid int for Buddy status conversion");
+                _buddyStatus = ChatTabsManager.BuddyStatus.Non_Buddy;
+                break;
+        }
+    }
     // ============== Function ==============
     private void Update()
     {

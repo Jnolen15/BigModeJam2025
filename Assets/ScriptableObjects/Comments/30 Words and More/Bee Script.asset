@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22aafa7a0e28fe488778183f1b68b21, type: 3}
   m_Name: Bee Script
   m_EditorClassIdentifier: 
-  Message: 'Bee Movie
+  Message: 'Fly Movie
 
-    By Jerry Seinfeld
+    By Berry Scheinfeld
 
     (Black screen with text; The
-    sound of buzzing bees can be heard)
+    sound of buzzing flies can be heard)
 
     NARRATOR:
 
     According to all known
-    laws of aviation, there is no way a bee should be able to fly. Its wings are
-    too small to get its fat little body off the ground. The bee, of course, flies
-    anyway because bees don''t care what humans think is impossible.
+    laws of aviation, there is no way a fly should be able to fly. Its wings are
+    too small to get its fat little body off the ground. The fly, of course, flies
+    anyway because flies don''t care what humans think is impossible.
 
 '
   violations: 05000000
