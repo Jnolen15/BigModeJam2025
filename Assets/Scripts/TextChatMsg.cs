@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class TextChatMsg : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class TextChatMsg : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _timeStamp;
     [SerializeField] private TextMeshProUGUI _chatterName;
     [SerializeField] private TextMeshProUGUI _message;
+    [SerializeField] private Image _buddyIcon;
+    [SerializeField] private Sprite _moderatorIcon;
     
     private float _aliveTime;
     private ChatManager _chatMan;
-    private bool _banned;
+    private bool _notClickable;
 
     public delegate void ChatEvent(ChatTabsManager.BuddyStatus b, string name, string timeStamp, string message, TextChatMsg chatMsg);
     public static event ChatEvent OnChatClicked;
@@ -29,6 +32,19 @@ public class TextChatMsg : MonoBehaviour
         // Something here for buddy badge
     }
 
+    public void SetupModMsg(string timeStamp, string msg, ChatManager chatMngr)
+    {
+        _notClickable = true;
+        _timeStamp.text = timeStamp;
+        _chatterName.text = "Moderator Action:";
+        _chatterName.color = Color.red;
+        _message.text = msg;
+        _chatMan = chatMngr;
+
+        _buddyIcon.sprite = _moderatorIcon;
+        _buddyIcon.color = Color.red;
+    }
+
     // ============== Function ==============
     private void Update()
     {
@@ -37,7 +53,7 @@ public class TextChatMsg : MonoBehaviour
 
     public void OnClick()
     {
-        if (_banned)
+        if (_notClickable)
             return;
 
         OnChatClicked?.Invoke(ChatTabsManager.BuddyStatus.Non_Buddy, _chatterName.text, _timeStamp.text, _message.text, this);
@@ -50,7 +66,7 @@ public class TextChatMsg : MonoBehaviour
 
     public void StikeOutMsg()
     {
-        _banned = true;
+        _notClickable = true;
         _message.textStyle = TMP_Settings.defaultStyleSheet.GetStyle("Strike");
     }
 

@@ -118,6 +118,22 @@ public class ChatManager : MonoBehaviour
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(_chatArea);
     }
+    
+    private void DisplayModMsg(string chatMsg)
+    {
+        int seconds = ((int)_streamTimer % 60);
+        int minutes = ((int)_streamTimer / 60);
+        string timestamp = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+        TextChatMsg msg = Instantiate(_chatMsgPref, _chatArea).GetComponentInChildren<TextChatMsg>();
+        msg.SetupModMsg(timestamp, chatMsg, this);
+
+        _activeChatList.Add(msg);
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(_chatArea);
+
+        LookForPastMsgs();
+    }
 
     public void DeleteOldMsg(TextChatMsg chatMsg)
     {
@@ -145,5 +161,7 @@ public class ChatManager : MonoBehaviour
         }
 
         chatMsg.StikeOutMsg();
+
+        DisplayModMsg(p.ToString());
     }
 }
