@@ -138,4 +138,9 @@ public class TextChatMsg : MonoBehaviour
     {
         return _buddyStatus;
     }
+
+    public bool GetNotClickable()
+    {
+        return _notClickable;
+    }
 }

@@ -19,6 +19,11 @@ public class CommentsSO : ScriptableObject
     }
 
     public List<Violations> violations;
+
+    public List<Violations> GetViolationList()
+    {
+        return violations;
+    }
 }
 
 
