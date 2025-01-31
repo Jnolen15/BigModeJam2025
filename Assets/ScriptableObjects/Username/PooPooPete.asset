@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7139a0b01c67b44a54f9df50e4ba3e, type: 3}
   m_Name: PooPooPete
   m_EditorClassIdentifier: 
-  Username: 
+  ChatterColor: {r: 0.056078322, g: 0.055980217, b: 0.02074705, a: 1}

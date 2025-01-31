@@ -124,6 +124,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 81590291632fe904b95784e238129eb3, type: 2}
   - {fileID: 11400000, guid: c76016d791e6d3341b3cbba6c32b2069, type: 2}
   _usernameList:
+  - {fileID: 11400000, guid: c3fa33d02268ebd4da164af5e1b00a60, type: 2}
   - {fileID: 11400000, guid: d0e8eae3156ce9148b6e8cff321929a1, type: 2}
   - {fileID: 11400000, guid: 72054ea382c49cb418b51177a43b32d4, type: 2}
   - {fileID: 11400000, guid: 5d48be0ed6b7330409f8b4699a86ccf1, type: 2}

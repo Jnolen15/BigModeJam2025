@@ -64,7 +64,7 @@ public class ChatManager : MonoBehaviour
         int randComment = Random.Range(0, _commentsList.Count);
         int randUsername = Random.Range(0, _usernameList.Count);
 
-        DisplayChatMsg(_usernameList[randUsername].GetUsername(), _commentsList[randComment].Message);
+        DisplayChatMsg(_usernameList[randUsername].GetUsername(), _usernameList[randUsername].ChatterColor, _commentsList[randComment].Message);
     }
 
     private void LookForPastMsgs()
@@ -105,14 +105,14 @@ public class ChatManager : MonoBehaviour
         return topLeftCornerIn || botRightCornerIn;
     }
 
-    private void DisplayChatMsg(string chatName, string chatMsg)
+    private void DisplayChatMsg(string chatName, Color chatterColor, string chatMsg)
     {
         int seconds = ((int)_streamTimer % 60);
         int minutes = ((int)_streamTimer / 60);
         string timestamp = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         TextChatMsg msg = Instantiate(_chatMsgPref, _chatArea).GetComponentInChildren<TextChatMsg>();
-        msg.Setup(timestamp, chatName, chatMsg, this);
+        msg.Setup(timestamp, chatName, chatterColor, chatMsg, this);
 
         _activeChatList.Add(msg);
 
@@ -143,9 +143,7 @@ public class ChatManager : MonoBehaviour
             Debug.LogWarning("Chat message not found in _activeChatList");
             return;
         }
-        
-        _activeChatList.Remove(chatMsg);
 
-        chatMsg.DestroyMsg();
+        chatMsg.StikeOutMsg();
     }
 }

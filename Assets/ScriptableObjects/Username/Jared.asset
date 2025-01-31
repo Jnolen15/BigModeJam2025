@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7139a0b01c67b44a54f9df50e4ba3e, type: 3}
   m_Name: Jared
   m_EditorClassIdentifier: 
-  Username: 
+  ChatterColor: {r: 0.17656507, g: 0.022428663, b: 0.14606297, a: 1}
