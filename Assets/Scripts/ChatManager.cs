@@ -69,25 +69,22 @@ public class ChatManager : MonoBehaviour
     private void SendNewChat()
     {
         int randUsername = Random.Range(0, _usernameList.Count);
-        int randComment = 0;
 
-        int rand = Random.Range(0, 12);
-        if(rand < 5)
-            randComment = Random.Range(0, _generalMSGList.Count);
-        else if (rand == 6)
-            randComment = Random.Range(0, _profanityMSGList.Count);
-        else if (rand == 7)
-            randComment = Random.Range(0, _linksMSGList.Count);
-        else if (rand == 8)
-            randComment = Random.Range(0, _promotingMSGList.Count);
-        else if (rand == 9)
-            randComment = Random.Range(0, _capsMSGList.Count);
-        else if (rand == 10)
-            randComment = Random.Range(0, _meanMSGList.Count);
-        else if (rand == 11)
-            randComment = Random.Range(0, _over30MSGList.Count);
-
-        DisplayChatMsg(_usernameList[randUsername], _generalMSGList[randComment]);
+        int rand = Random.Range(0, 60);
+        if(rand < 52)
+            DisplayChatMsg(_usernameList[randUsername], _generalMSGList[Random.Range(0, _generalMSGList.Count)]);
+        else if (rand == 53)
+            DisplayChatMsg(_usernameList[randUsername], _profanityMSGList[Random.Range(0, _profanityMSGList.Count)]);
+        else if (rand == 54)
+            DisplayChatMsg(_usernameList[randUsername], _linksMSGList[Random.Range(0, _linksMSGList.Count)]);
+        else if (rand == 56)
+            DisplayChatMsg(_usernameList[randUsername], _promotingMSGList[Random.Range(0, _promotingMSGList.Count)]);
+        else if (rand == 57)
+            DisplayChatMsg(_usernameList[randUsername], _capsMSGList[Random.Range(0, _capsMSGList.Count)]);
+        else if (rand == 58)
+            DisplayChatMsg(_usernameList[randUsername], _meanMSGList[Random.Range(0, _meanMSGList.Count)]);
+        else if (rand == 59)
+            DisplayChatMsg(_usernameList[randUsername], _over30MSGList[Random.Range(0, _over30MSGList.Count)]);
     }
 
     private void LookForPastMsgs()
@@ -157,7 +154,19 @@ public class ChatManager : MonoBehaviour
 
     private void TestMessageForViolations(TextChatMsg chatMsg)
     {
-        // if violation found do something
+        // check message (make sure its not a mod message or one that was deleted)
+        if (!chatMsg.GetNotClickable())
+        {
+            CommentsSO comment = chatMsg.GetComment();
+            List<CommentsSO.Violations> violations = comment.GetViolationList();
+
+            if (violations.Count > 0)
+            {
+                Debug.Log("Violating message was let past!! \n " + comment.Message);
+
+                // Send violation message to reports area
+            }
+        }
 
         DeleteOldMsg(chatMsg);
     }
