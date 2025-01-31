@@ -9,15 +9,17 @@ public class TextChatMsg : MonoBehaviour
     // ============== Refrences / Variables ==============
     [SerializeField] private TextMeshProUGUI _timeStamp;
     [SerializeField] private TextMeshProUGUI _chatterName;
+    [SerializeField] private ChatTabsManager.BuddyStatus _buddyStatus = ChatTabsManager.BuddyStatus.Non_Buddy; // default to non-buddy
     [SerializeField] private TextMeshProUGUI _message;
     [SerializeField] private Image _buddyIcon;
     [SerializeField] private Sprite _moderatorIcon;
+
     
     private float _aliveTime;
     private ChatManager _chatMan;
     private bool _notClickable;
 
-    public delegate void ChatEvent(ChatTabsManager.BuddyStatus b, string name, string timeStamp, string message, TextChatMsg chatMsg);
+    public delegate void ChatEvent(TextChatMsg msg);
     public static event ChatEvent OnChatClicked;
 
     // ============== Setup ==============	
@@ -56,7 +58,8 @@ public class TextChatMsg : MonoBehaviour
         if (_notClickable)
             return;
 
-        OnChatClicked?.Invoke(ChatTabsManager.BuddyStatus.Non_Buddy, _chatterName.text, _timeStamp.text, _message.text, this);
+        // OnChatClicked?.Invoke(ChatTabsManager.BuddyStatus.Non_Buddy, _chatterName.text, _timeStamp.text, _message.text, this);
+        OnChatClicked?.Invoke(this);
     }
 
     public void DestroyMsg()
@@ -75,4 +78,26 @@ public class TextChatMsg : MonoBehaviour
     {
         return _aliveTime;
     }
+
+    public string GetMessageText()
+    {
+        return _message.text;
+    }
+
+    public string GetTimeStamp()
+    {
+        return _timeStamp.text;
+    }
+
+    public string GetAccountName()
+    {
+        return _chatterName.text;
+    }
+
+    public ChatTabsManager.BuddyStatus GetBuddyStatus()
+    {
+        return _buddyStatus;
+    }
+
+
 }

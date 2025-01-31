@@ -17,8 +17,6 @@ public class ChatTabsManager : MonoBehaviour
     [SerializeField] private Image _buddyStatusImage;
     [SerializeField] private GameObject _modToolsTab;
     [SerializeField] private GameObject _rulesTab;
-    [SerializeField] private GameObject _buddyStatus;
-    [SerializeField] private String _targetAccountName;
     [SerializeField] private Sprite _nonBuddyIcon;
     [SerializeField] private Sprite _buddyIcon;
     [SerializeField] private Sprite _veryImportantBuddyIcon;
@@ -73,15 +71,15 @@ public class ChatTabsManager : MonoBehaviour
         TextChatMsg.OnChatClicked -= SetTargetAccount;
     }
 
-    public void SetTargetAccount(BuddyStatus b, string name, string timeStamp, string message, TextChatMsg chatMsg)
+    public void SetTargetAccount(TextChatMsg chatMessage) // passing through and storing text data structure
     {
-        _selectedMsg = chatMsg;
-        _targetAccountName = name;
-        _accountNameTextBox.text = name;
-        _messageTextBox.text = "\"" + message + "\"";
-        _TimeStampTextBox.text = timeStamp;
 
-        switch (b) // setting buddy image based on enum reveived
+        _selectedMsg = chatMessage;
+        _accountNameTextBox.text = chatMessage.GetAccountName();
+        _messageTextBox.text = "\"" + chatMessage.GetMessageText() + "\"";
+        _TimeStampTextBox.text = chatMessage.GetTimeStamp();
+
+        switch (chatMessage.GetBuddyStatus()) // setting buddy image based on enum reveived
         {
             case BuddyStatus.Buddy:
                 _buddyStatusImage.sprite = _nonBuddyIcon;
@@ -103,7 +101,7 @@ public class ChatTabsManager : MonoBehaviour
 
     public void ModAction(int i)
     {
-        Debug.Log("Invoking mod action " + IntToPunishmentType(i) + " on account: " + _targetAccountName);
+        Debug.Log("Invoking mod action " + IntToPunishmentType(i) + " on account: " + _selectedMsg.GetAccountName());
         OnModEvent?.Invoke(IntToPunishmentType(i), _selectedMsg);
         ToggleModTab();
     }
