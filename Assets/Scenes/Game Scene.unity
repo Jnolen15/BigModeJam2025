@@ -386,7 +386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5132925109179689718, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5132925109179689718, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_fontSizeBase
@@ -398,10 +398,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
@@ -409,7 +413,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 133394209}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 133394209}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
@@ -417,7 +429,15 @@ PrefabInstance:
       value: ToggleTab
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: HideNotification
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChatTabsManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: ChatTabsManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
@@ -425,7 +445,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 452041089}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1723062845}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1457,10 +1485,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
@@ -1468,7 +1500,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 133394209}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 133394209}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
@@ -1476,7 +1516,15 @@ PrefabInstance:
       value: ToggleTab
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: HideNotification
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChatTabsManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: ChatTabsManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
@@ -1484,7 +1532,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 621229473}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1365015931}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5447,7 +5503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5132925109179689718, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_fontSize
-      value: 18
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5132925109179689718, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_fontSizeBase
@@ -5463,10 +5519,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
@@ -5474,7 +5534,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 133394209}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 133394209}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
@@ -5482,7 +5550,15 @@ PrefabInstance:
       value: ToggleTab
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: HideNotification
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChatTabsManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: ChatTabsManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
@@ -5490,7 +5566,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 929275914}
     - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 114063198}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192123247467867463, guid: 9bc14809d4fa83444a9b5eb6d60a1854, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
