@@ -10,12 +10,12 @@ public class CommentsSO : ScriptableObject
 
     public enum Violations
     {
-        NoSpamming,
         NoProfanity,
         NoLinks,
         NoPromoting,
         NoAllCaps,
-
+        NoMean,
+        NoMessagesOver30,
     }
 
     public List<Violations> violations;
