@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LET'S GO
   m_EditorClassIdentifier: 
   Message: LET'S GO
-  violations: 03000000
+  violation: 4

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WOAHHH
   m_EditorClassIdentifier: 
   Message: WOAHHH
-  violations: 03000000
+  violation: 4

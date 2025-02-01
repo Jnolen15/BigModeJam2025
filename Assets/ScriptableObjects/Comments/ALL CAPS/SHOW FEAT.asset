@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SHOW FEAT
   m_EditorClassIdentifier: 
   Message: SHOW FEAT
-  violations: 03000000
+  violation: 4

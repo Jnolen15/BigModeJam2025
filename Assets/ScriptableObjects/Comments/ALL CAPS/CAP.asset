@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CAP
   m_EditorClassIdentifier: 
   Message: CAP
-  violations: 03000000
+  violation: 4

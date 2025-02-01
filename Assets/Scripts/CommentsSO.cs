@@ -10,6 +10,7 @@ public class CommentsSO : ScriptableObject
 
     public enum Violations
     {
+        None,
         NoProfanity,
         NoLinks,
         NoPromoting,
@@ -18,12 +19,7 @@ public class CommentsSO : ScriptableObject
         NoMessagesOver30,
     }
 
-    public List<Violations> violations;
-
-    public List<Violations> GetViolationList()
-    {
-        return violations;
-    }
+    public Violations violation;
 }
 
 

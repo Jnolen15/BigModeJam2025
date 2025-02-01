@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: "LET\u2019S GOOOO"
   m_EditorClassIdentifier: 
   Message: "LET\u2019S GOOOO"
-  violations: 03000000
+  violation: 4

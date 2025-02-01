@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Eat the streamer
   m_EditorClassIdentifier: 
   Message: Eat the streamer
-  violations: 04000000
+  violation: 5

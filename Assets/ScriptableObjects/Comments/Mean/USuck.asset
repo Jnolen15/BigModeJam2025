@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: USuck
   m_EditorClassIdentifier: 
   Message: You suck
-  violations: 04000000
+  violation: 5

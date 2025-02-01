@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: OMEGALUL(caps)
   m_EditorClassIdentifier: 
   Message: OMEGALUL
-  violations: 03000000
+  violation: 4

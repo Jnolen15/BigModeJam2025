@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: "Drink Steinlager, New Zealand\u2019s finest beer!"
   m_EditorClassIdentifier: 
   Message: "Drink Steinlager, New Zealand\u2019s finest beer!"
-  violations: 02000000
+  violation: 3

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Link2
   m_EditorClassIdentifier: 
   Message: https://www.youtube.com/watch?v=ILtz5nX3_fc
-  violations: 01000000
+  violation: 2

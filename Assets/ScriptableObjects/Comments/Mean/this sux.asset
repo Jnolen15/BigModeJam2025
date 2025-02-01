@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: this sux
   m_EditorClassIdentifier: 
   Message: "this sux\r"
-  violations: 04000000
+  violation: 5

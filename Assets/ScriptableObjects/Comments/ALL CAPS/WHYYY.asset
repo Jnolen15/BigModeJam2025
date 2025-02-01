@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WHYYY
   m_EditorClassIdentifier: 
   Message: WHYYY
-  violations: 03000000
+  violation: 4

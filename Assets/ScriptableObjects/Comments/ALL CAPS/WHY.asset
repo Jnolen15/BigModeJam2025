@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WHY
   m_EditorClassIdentifier: 
   Message: WHY
-  violations: 03000000
+  violation: 4

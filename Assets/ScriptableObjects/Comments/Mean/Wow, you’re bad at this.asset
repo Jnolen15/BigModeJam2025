@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: "Wow, you\u2019re bad at this"
   m_EditorClassIdentifier: 
   Message: "Wow, you\u2019re bad at this"
-  violations: 04000000
+  violation: 5

@@ -15,4 +15,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Message: "Play my new game Cursed Crops out now on Steam!  You won\u2019t regret
     it :)\r"
-  violations: 02000000
+  violation: 3

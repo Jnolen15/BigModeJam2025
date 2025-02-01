@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ROCK AND STONE
   m_EditorClassIdentifier: 
   Message: ROCK AND STONE
-  violations: 03000000
+  violation: 4

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Cringe
   m_EditorClassIdentifier: 
   Message: Cringe
-  violations: 04000000
+  violation: 5

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: 5 head
   m_EditorClassIdentifier: 
   Message: 5 head
-  violations: 04000000
+  violation: 5

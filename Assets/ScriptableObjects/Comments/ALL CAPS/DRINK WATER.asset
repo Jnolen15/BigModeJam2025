@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DRINK WATER
   m_EditorClassIdentifier: 
   Message: DRINK WATER
-  violations: 03000000
+  violation: 4

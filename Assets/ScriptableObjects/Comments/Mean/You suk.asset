@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: You suk
   m_EditorClassIdentifier: 
   Message: You suk
-  violations: 04000000
+  violation: 5

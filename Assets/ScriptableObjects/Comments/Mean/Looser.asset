@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Looser
   m_EditorClassIdentifier: 
   Message: Looser
-  violations: 04000000
+  violation: 5

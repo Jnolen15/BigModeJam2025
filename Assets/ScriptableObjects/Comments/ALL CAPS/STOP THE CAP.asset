@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: STOP THE CAP
   m_EditorClassIdentifier: 
   Message: STOP THE CAP
-  violations: 03000000
+  violation: 4

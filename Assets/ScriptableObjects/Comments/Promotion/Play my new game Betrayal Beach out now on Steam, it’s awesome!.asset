@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: "Play my new game Betrayal Beach out now on Steam, it\u2019s awesome!"
   m_EditorClassIdentifier: 
   Message: "Play my new game Betrayal Beach out now on Steam, it\u2019s awesome!"
-  violations: 02000000
+  violation: 3

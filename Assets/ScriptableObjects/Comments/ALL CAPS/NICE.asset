@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: NICE
   m_EditorClassIdentifier: 
   Message: NICE
-  violations: 03000000
+  violation: 4

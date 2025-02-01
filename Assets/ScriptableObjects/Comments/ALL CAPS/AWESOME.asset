@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: AWESOME
   m_EditorClassIdentifier: 
   Message: AWESOME
-  violations: 03000000
+  violation: 4

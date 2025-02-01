@@ -192,15 +192,15 @@ public class ChatManager : MonoBehaviour
         if (!chatMsg.GetNotClickable())
         {
             CommentsSO comment = chatMsg.GetComment();
-            List<CommentsSO.Violations> violations = comment.GetViolationList();
+            CommentsSO.Violations violation = comment.violation;
 
             // Only testing 1 violation for now
-            if (violations.Count > 0 && _violationsList.Contains(violations[0]))
+            if (violation != CommentsSO.Violations.None && _violationsList.Contains(violation))
             {
                 Debug.Log("Violating message was let past!! \n " + comment.Message);
 
                 // Send violation message to reports area
-                OnMissedMessage?.Invoke(violations[0], chatMsg);
+                OnMissedMessage?.Invoke(violation, chatMsg);
             }
         }
 

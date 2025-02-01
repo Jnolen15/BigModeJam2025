@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: HAHAHA
   m_EditorClassIdentifier: 
   Message: HAHAHA
-  violations: 03000000
+  violation: 4

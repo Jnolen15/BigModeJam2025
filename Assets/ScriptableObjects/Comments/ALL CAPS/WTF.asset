@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WTF
   m_EditorClassIdentifier: 
   Message: WTF
-  violations: 03000000
+  violation: 4

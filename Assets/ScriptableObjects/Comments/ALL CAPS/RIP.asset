@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RIP
   m_EditorClassIdentifier: 
   Message: RIP
-  violations: 03000000
+  violation: 4

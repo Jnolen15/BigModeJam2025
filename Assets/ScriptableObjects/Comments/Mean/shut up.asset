@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: shut up
   m_EditorClassIdentifier: 
   Message: shut up
-  violations: 04000000
+  violation: 5

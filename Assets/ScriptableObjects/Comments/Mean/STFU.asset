@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: STFU
   m_EditorClassIdentifier: 
   Message: STFU
-  violations: 0300000004000000
+  violation: 5

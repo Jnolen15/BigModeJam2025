@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: F#@%
   m_EditorClassIdentifier: 
   Message: F#@%
-  violations: 00000000
+  violation: 1

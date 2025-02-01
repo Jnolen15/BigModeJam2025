@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LMAO
   m_EditorClassIdentifier: 
   Message: LMAO
-  violations: 03000000
+  violation: 4
