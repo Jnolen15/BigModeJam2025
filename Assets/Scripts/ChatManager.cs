@@ -12,6 +12,7 @@ public class ChatManager : MonoBehaviour
     [SerializeField] private RectTransform _chatArea;
     [SerializeField] public RectTransform _maskRect;
     [SerializeField] public Vector2 _chatSpeed;
+    [SerializeField] public int _maxScore;
 
     [Header("Chats")]
     [SerializeField] private List<UsernamesSO> _usernameList = new List<UsernamesSO>();
@@ -24,6 +25,7 @@ public class ChatManager : MonoBehaviour
     [SerializeField] private List<CommentsSO> _over30MSGList = new List<CommentsSO>();
     private List<List<CommentsSO>> _violatingMessageCattegories = new List<List<CommentsSO>>();
 
+    private int _currentScore;
     private float _msgtimer;
     private float _streamTimer;
     private bool _streamStarted;
@@ -32,6 +34,9 @@ public class ChatManager : MonoBehaviour
 
     public delegate void ChatManagerEvent(CommentsSO.Violations violation, TextChatMsg chatMsg);
     public static event ChatManagerEvent OnMissedMessage;
+
+    public delegate void ChatManagerScore(int score, int max);
+    public static event ChatManagerScore OnScoreUpdated;
 
     // ============== Setup ==============
     private void Start()
@@ -194,13 +199,14 @@ public class ChatManager : MonoBehaviour
             CommentsSO comment = chatMsg.GetComment();
             CommentsSO.Violations violation = comment.violation;
 
-            // Only testing 1 violation for now
             if (violation != CommentsSO.Violations.None && _violationsList.Contains(violation))
             {
                 Debug.Log("Violating message was let past!! \n " + comment.Message);
 
                 // Send violation message to reports area
                 OnMissedMessage?.Invoke(violation, chatMsg);
+
+                AdjustScore(-5);
             }
         }
 
@@ -232,8 +238,34 @@ public class ChatManager : MonoBehaviour
             return;
         }
 
+        // check if violated rules
+        CommentsSO comment = chatMsg.GetComment();
+        CommentsSO.Violations violation = comment.violation;
+        if (violation != CommentsSO.Violations.None && _violationsList.Contains(violation))
+        {
+            AdjustScore(+5);
+        }
+        else
+        {
+            AdjustScore(-5);
+        }
+
         chatMsg.StikeOutMsg();
 
         DisplayModMsg(p.ToString());
+    }
+
+    private void AdjustScore(int adjustment)
+    {
+        _currentScore += adjustment;
+
+        if (_currentScore > _maxScore)
+            _currentScore = _maxScore;
+        else if (_currentScore < -_maxScore)
+            _currentScore = -_maxScore;
+
+        Debug.Log($"Score changed by {adjustment} now {_currentScore}");
+
+        OnScoreUpdated?.Invoke(_currentScore, _maxScore);
     }
 }

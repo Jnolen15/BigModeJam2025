@@ -108,6 +108,7 @@ MonoBehaviour:
   _chatArea: {fileID: 3291216339160312891}
   _maskRect: {fileID: 4585331162043138005}
   _chatSpeed: {x: 0.2, y: 1}
+  _maxScore: 50
   _usernameList:
   - {fileID: 11400000, guid: c3fa33d02268ebd4da164af5e1b00a60, type: 2}
   - {fileID: 11400000, guid: d0e8eae3156ce9148b6e8cff321929a1, type: 2}
