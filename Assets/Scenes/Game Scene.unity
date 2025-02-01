@@ -832,7 +832,10 @@ MonoBehaviour:
     ViolationName: No Promoting
     Violation: 3
     ChatSpeed: {x: 0.2, y: 0.8}
-  _difficultyIncreaseTimer: 0
+  - levelUpTimer: 20
+    ViolationName: 
+    Violation: 0
+    ChatSpeed: {x: 0.2, y: 0.8}
 --- !u!1 &296250223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,7 +1465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.023449754, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.5, y: 0}
+  m_AnchoredPosition: {x: -4.4999847, y: 0}
   m_SizeDelta: {x: -9.923201, y: 4.0139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &653602950

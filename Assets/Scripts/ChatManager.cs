@@ -271,7 +271,7 @@ public class ChatManager : MonoBehaviour
         else if (_currentScore < -_maxScore)
             _currentScore = -_maxScore;
 
-        Debug.Log($"Score changed by {adjustment} now {_currentScore}");
+        //Debug.Log($"Score changed by {adjustment} now {_currentScore}");
 
         OnScoreUpdated?.Invoke(_currentScore, _maxScore);
     }

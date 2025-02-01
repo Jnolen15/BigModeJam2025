@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private int _maxLevel;
     [SerializeField] private float _difficultyIncreaseTimer;
     private float _difficultyIncreaseTime;
+    private bool _gameEnded;
 
     [System.Serializable]
     public class DifficultyLevel
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
         public CommentsSO.Violations Violation;
         public Vector2 ChatSpeed;
     }
+
+    public delegate void GameManagerEvent();
+    public static event GameManagerEvent OnGameEnded;
 
     public delegate void GMNewViolationEvent(CommentsSO.Violations violation);
     public static event GMNewViolationEvent OnNewViolationEnforced;
@@ -39,8 +43,11 @@ public class GameManager : MonoBehaviour
     // ============== Function ==============
     void Update()
     {
-        if (_currentLevel >= _maxLevel)
+        if (_gameEnded)
             return;
+
+        if (_currentLevel >= _maxLevel)
+            EndGame();
 
         if (_difficultyIncreaseTimer > 0)
             _difficultyIncreaseTimer -= Time.deltaTime;
@@ -52,14 +59,26 @@ public class GameManager : MonoBehaviour
     {
         _difficultyIncreaseTime = dlevel.levelUpTimer;
         _difficultyIncreaseTimer = _difficultyIncreaseTime;
-        EnforceNewRule(dlevel);
+        
+        if(dlevel.Violation != CommentsSO.Violations.None)
+            EnforceNewRule(dlevel);
+        
         OnNewChatSpeed?.Invoke(dlevel.ChatSpeed);
+
+        _currentLevel++;
     }
 
     private void EnforceNewRule(DifficultyLevel dlevel)
     {
         _ctm.AddRule(dlevel.ViolationName);
         OnNewViolationEnforced?.Invoke(dlevel.Violation);
-        _currentLevel++;
+    }
+
+    private void EndGame()
+    {
+        Debug.Log("Game Ended!!!!!");
+
+        _gameEnded = true;
+        OnGameEnded?.Invoke();
     }
 }
