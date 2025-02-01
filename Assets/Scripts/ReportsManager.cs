@@ -73,8 +73,8 @@ public class ReportsManager : MonoBehaviour
         if (rctCorners[1].y >= msgCorners[3].y)
             botRightCornerIn = true;
 
-        Debug.Log($"topLeftCornerIn: {topLeftCornerIn} {rctCorners[1].y} >= {msgCorners[1].y}" +
-            $"\n botRightCornerIn: {botRightCornerIn} {rctCorners[1].y} >= {msgCorners[3].y}");
+        //Debug.Log($"topLeftCornerIn: {topLeftCornerIn} {rctCorners[1].y} >= {msgCorners[1].y}" +
+        //    $"\n botRightCornerIn: {botRightCornerIn} {rctCorners[1].y} >= {msgCorners[3].y}");
 
         return topLeftCornerIn || botRightCornerIn;
     }

@@ -22,11 +22,13 @@ public class ChatManager : MonoBehaviour
     [SerializeField] private List<CommentsSO> _capsMSGList = new List<CommentsSO>();
     [SerializeField] private List<CommentsSO> _meanMSGList = new List<CommentsSO>();
     [SerializeField] private List<CommentsSO> _over30MSGList = new List<CommentsSO>();
+    private List<List<CommentsSO>> _violatingMessageCattegories = new List<List<CommentsSO>>();
 
     private float _msgtimer;
     private float _streamTimer;
     private bool _streamStarted;
     private List<TextChatMsg> _activeChatList = new List<TextChatMsg>();
+    [SerializeField] private List<CommentsSO.Violations> _violationsList = new List<CommentsSO.Violations>();
 
     public delegate void ChatManagerEvent(CommentsSO.Violations violation, TextChatMsg chatMsg);
     public static event ChatManagerEvent OnMissedMessage;
@@ -35,6 +37,7 @@ public class ChatManager : MonoBehaviour
     private void Start()
     {
         ChatTabsManager.OnModEvent += BanMsg;
+        GameManager.OnNewViolationEnforced += NewViolation;
 
         StartStream();
     }
@@ -42,6 +45,7 @@ public class ChatManager : MonoBehaviour
     public void OnDestroy()
     {
         ChatTabsManager.OnModEvent -= BanMsg;
+        GameManager.OnNewViolationEnforced -= NewViolation;
     }
 
     public void StartStream()
@@ -71,21 +75,19 @@ public class ChatManager : MonoBehaviour
     {
         int randUsername = Random.Range(0, _usernameList.Count);
 
-        int rand = Random.Range(0, 60);
-        if(rand < 52)
+        int rand = Random.Range(0, 100);
+        if (rand < 90)
             DisplayChatMsg(_usernameList[randUsername], _generalMSGList[Random.Range(0, _generalMSGList.Count)]);
-        else if (rand == 53)
-            DisplayChatMsg(_usernameList[randUsername], _profanityMSGList[Random.Range(0, _profanityMSGList.Count)]);
-        else if (rand == 54)
-            DisplayChatMsg(_usernameList[randUsername], _linksMSGList[Random.Range(0, _linksMSGList.Count)]);
-        else if (rand == 56)
-            DisplayChatMsg(_usernameList[randUsername], _promotingMSGList[Random.Range(0, _promotingMSGList.Count)]);
-        else if (rand == 57)
-            DisplayChatMsg(_usernameList[randUsername], _capsMSGList[Random.Range(0, _capsMSGList.Count)]);
-        else if (rand == 58)
-            DisplayChatMsg(_usernameList[randUsername], _meanMSGList[Random.Range(0, _meanMSGList.Count)]);
-        else if (rand == 59)
-            DisplayChatMsg(_usernameList[randUsername], _over30MSGList[Random.Range(0, _over30MSGList.Count)]);
+        else
+            SendNewViolatingChat(randUsername);
+    }
+
+    private void SendNewViolatingChat(int randUsername)
+    {
+        int rand = Random.Range(0, _violatingMessageCattegories.Count);
+        CommentsSO comment = _violatingMessageCattegories[rand][Random.Range(0, _violatingMessageCattegories[rand].Count)];
+
+        DisplayChatMsg(_usernameList[randUsername], comment);
     }
 
     private void LookForPastMsgs()
@@ -93,7 +95,7 @@ public class ChatManager : MonoBehaviour
         if (_activeChatList.Count == 0)
             return;
         
-        if (_activeChatList[0].GetTimeAlive() < 1f)
+        if (_activeChatList[0].GetTimeAlive() < 0.5f)
             return;
 
         if (!RectContainsAnother(_maskRect, _activeChatList[0].GetComponent<RectTransform>()))
@@ -153,6 +155,37 @@ public class ChatManager : MonoBehaviour
         LookForPastMsgs();
     }
 
+    private void NewViolation(CommentsSO.Violations newViolation)
+    {
+        _violationsList.Add(newViolation);
+
+        switch (newViolation)
+        {
+            case CommentsSO.Violations.NoAllCaps:
+                _violatingMessageCattegories.Add(_capsMSGList);
+                break;
+            case CommentsSO.Violations.NoLinks:
+                _violatingMessageCattegories.Add(_linksMSGList);
+                break;
+            case CommentsSO.Violations.NoMean:
+                _violatingMessageCattegories.Add(_meanMSGList);
+                break;
+            case CommentsSO.Violations.NoMessagesOver30:
+                _violatingMessageCattegories.Add(_over30MSGList);
+                break;
+            case CommentsSO.Violations.NoProfanity:
+                _violatingMessageCattegories.Add(_profanityMSGList);
+                break;
+            case CommentsSO.Violations.NoPromoting:
+                _violatingMessageCattegories.Add(_promotingMSGList);
+                break;
+            default:
+                return;
+        }
+
+        Debug.Log("Added new rule and new message list: " + newViolation);
+    }
+
     private void TestMessageForViolations(TextChatMsg chatMsg)
     {
         // check message (make sure its not a mod message or one that was deleted)
@@ -161,7 +194,8 @@ public class ChatManager : MonoBehaviour
             CommentsSO comment = chatMsg.GetComment();
             List<CommentsSO.Violations> violations = comment.GetViolationList();
 
-            if (violations.Count > 0)
+            // Only testing 1 violation for now
+            if (violations.Count > 0 && _violationsList.Contains(violations[0]))
             {
                 Debug.Log("Violating message was let past!! \n " + comment.Message);
 

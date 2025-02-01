@@ -79,6 +79,7 @@ public class TextChatMsg : MonoBehaviour
 
     public void SetupReportMsg(UsernamesSO username, string comment, ChatTabsManager.BuddyStatus buddyStat, string timeStamp)
     {
+        _notClickable = true;
         _timeStamp.text = timeStamp;
         _chatterName.text = username.GetUsername() + ":";
         _chatterName.color = username.ChatterColor;

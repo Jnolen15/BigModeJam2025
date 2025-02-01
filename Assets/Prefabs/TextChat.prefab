@@ -127,7 +127,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c2e1bb8e4ec4af43a9185b26984c2a0, type: 2}
   - {fileID: 11400000, guid: b075f7f285674024bb9e233c0d29ff13, type: 2}
   - {fileID: 11400000, guid: b22909d1c8741af468e77aecab4214d9, type: 2}
-  - {fileID: 11400000, guid: 9ac8dee041daa074aa74d448d7b22d3f, type: 2}
   - {fileID: 11400000, guid: 9fa792d3116d6354d864364e375e31e1, type: 2}
   - {fileID: 11400000, guid: 07718e3fc06a1b74281e836a920b6210, type: 2}
   - {fileID: 11400000, guid: 28e36e49347d7c449b59bfd3505afa5c, type: 2}
@@ -235,10 +234,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 487d0e06b4900f8478d4c55036726179, type: 2}
   - {fileID: 11400000, guid: a4b088f2ad6ccbc4daf3601ffcbfdff0, type: 2}
   - {fileID: 11400000, guid: 003fdc62c1759a948bec44afb9ca47e7, type: 2}
+  - {fileID: 11400000, guid: 9ac8dee041daa074aa74d448d7b22d3f, type: 2}
   _over30MSGList:
   - {fileID: 11400000, guid: 49bb1f9d17123b74f882a8cf733fc1ad, type: 2}
   - {fileID: 11400000, guid: eadbc8c2b7ec46e41b6de7cf268769b2, type: 2}
-  _msgtimer: 0
+  _violationsList: 
 --- !u!1 &6712670369931175198
 GameObject:
   m_ObjectHideFlags: 0

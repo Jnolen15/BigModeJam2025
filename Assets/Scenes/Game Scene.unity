@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 133394205}
   - component: {fileID: 133394204}
   - component: {fileID: 133394209}
+  - component: {fileID: 133394210}
   m_Layer: 5
   m_Name: Chat Canvas
   m_TagString: Untagged
@@ -750,6 +751,27 @@ MonoBehaviour:
   _buddyIcon: {fileID: 21300000, guid: cce8466dd35aec2458b0a296b5a7c78c, type: 3}
   _veryImportantBuddyIcon: {fileID: 21300000, guid: 91e6cf7d1315f7f4494d88b889383984, type: 3}
   RulesList: []
+--- !u!114 &133394210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133394203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71009f924ea89b4cbcc2781a035c939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rulesList:
+  - No Profanity
+  - No Being Mean :(
+  - No Links
+  - No Messages Over 30 Characters
+  - No All Caps
+  - No Promoting
+  _violationsList: 000000000400000001000000050000000300000002000000
+  _difficultyIncreaseTime: 10
 --- !u!1 &243279136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,7 +1218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.023449754, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.4999695, y: 0}
+  m_AnchoredPosition: {x: -4.4999847, y: 0}
   m_SizeDelta: {x: -9.923201, y: 4.0139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &653602950

@@ -72,13 +72,6 @@ public class ChatTabsManager : MonoBehaviour
 
         // initializing rules list
         GenerateRuleList();
-
-        // rules list testing
-        AddRule("Don't be Cringe");
-        AddRule("No spamming");
-        AddRule("Coping is mandatory");
-
-        RemoveRule("No spamming");
     }
 
     public void OnDestroy()
