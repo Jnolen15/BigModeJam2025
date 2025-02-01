@@ -140,14 +140,14 @@ MonoBehaviour:
       m_Width: 338.33334
       m_Height: 338.5
       m_HorizontalBearingX: -0
-      m_HorizontalBearingY: 264.5
+      m_HorizontalBearingY: 255
       m_HorizontalAdvance: 338.33334
     m_GlyphRect:
       m_X: 338
       m_Y: 0
       m_Width: 338
       m_Height: 338
-    m_Scale: 1.6
+    m_Scale: 1.8
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: -1046097931, guid: 999b4b2a6d6adba42b7a16d9fd50ff87, type: 3}
