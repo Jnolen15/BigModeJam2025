@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,11 +14,25 @@ public class MenuBarManger : MonoBehaviour
     [SerializeField] Image _fillImage;
     [SerializeField] float _maxValue = 100;
     [SerializeField] float _minValue = -100;
+    [SerializeField] BarType _barType;
+
+    public enum BarType
+    {
+        ScoreBar,
+        Chatbar
+    }
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        SetFillPercent(33);
+        ChatManager.OnScoreUpdated += SetScore;
+
+        _fillImage.fillAmount = 0.5f;
+    }
+
+    public void OnDestroy()
+    {
+        ChatManager.OnScoreUpdated -= SetScore;
     }
 
     // Update is called once per frame
@@ -38,6 +53,17 @@ public class MenuBarManger : MonoBehaviour
         string s = "";
         if (sum >= 0) s += "+"; // adding plus sign if positive
         _numberText.text = s += sum.ToString();
+    }
+
+    public void SetScore(int currentScore, int maxScore)
+    {
+        // setting score text
+        string s = "";
+        if (currentScore >= 0) s += "+"; // adding plus sign if positive
+        _numberText.text = s + currentScore.ToString();
+
+        // setting fill amount
+        _fillImage.fillAmount = (float)(maxScore + currentScore) / (float)(maxScore * 2);
     }
 
 
