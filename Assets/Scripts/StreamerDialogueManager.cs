@@ -26,14 +26,14 @@ public class StreamerDialogueManager : MonoBehaviour
     {
         _textMessaage = DialogueTextBox.GetComponent<TextMeshProUGUI>();
         _image = Streamer.GetComponent<UnityEngine.UI.Image>().overrideSprite;
-        StartCoroutine("showDialogue");
+        StartCoroutine("ShowDialogue");
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //if fighting stream ends, stop showDialogue to start another couritine that shows that streamer's reaction
     }
 
     //Take a random amount of seconds for streamer to talk
@@ -41,7 +41,7 @@ public class StreamerDialogueManager : MonoBehaviour
     //Activate the dialogue box that is off and put the SO inside of it
     //wait for certain amount of seconds
     //set the dialogue active false again and reset the while loop
-    IEnumerator showDialogue()
+    public IEnumerator ShowDialogue()
     {
         
         while (true)
@@ -65,4 +65,27 @@ public class StreamerDialogueManager : MonoBehaviour
             yield return null;
         }
     }
+
+    public IEnumerator ReactionDialogue(bool outcome)
+    {
+
+        if (!outcome) 
+        {
+            Streamer.GetComponent<PlayableDirector>().enabled = true;
+            //Use Scriptable Object here
+            _textMessaage.text = "Oh shucks! looks like we lost buddies";
+
+            
+            DialogueBox.SetActive(true);
+
+            yield return new WaitForSeconds(5);
+            Streamer.GetComponent<PlayableDirector>().initialTime = 0;
+            Streamer.GetComponent<PlayableDirector>().enabled = false;
+            DialogueBox.SetActive(false);
+
+
+            yield return null;
+        }
+    }
+
 }
