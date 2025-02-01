@@ -23,6 +23,7 @@ public class ChatTabsManager : MonoBehaviour
     [SerializeField] private GameObject _rulesNotification;
     [SerializeField] private GameObject _reportsNotification;
     [SerializeField] private GameObject _modNotification;
+    [SerializeField] private GameObject _messageNotFound;
 
 
     // Asset references
@@ -124,6 +125,17 @@ public class ChatTabsManager : MonoBehaviour
     }
 
     // ===================== Tab Stuff =====================
+    public void Update()
+    {
+        if (!_modToolsTab.activeSelf)
+            return;
+
+        if (_selectedMsg == null)
+        {
+            _messageNotFound.SetActive(true);
+        }
+    }
+
     public void ToggleRulesTab()
     {
         // Clicking the rules tab should toggle it and close the mod tab
@@ -136,6 +148,7 @@ public class ChatTabsManager : MonoBehaviour
         // Mod tab cant be clicked in scene, but when called hide rules (for RN)
         _modToolsTab.SetActive(true);
         _rulesTab.SetActive(false);
+        _messageNotFound.SetActive(false);
     }
 
     public void CloseModTab()
