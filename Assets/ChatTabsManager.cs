@@ -55,14 +55,14 @@ public class ChatTabsManager : MonoBehaviour
 
 
     // TODO add punishments to rules list
-
+    // ===================== Setup =====================
     void Start()
     {
         TextChatMsg.OnChatClicked += SetTargetAccount;
 
         // starting on rules tab
         _modToolsTab.SetActive(false);
-        _reportsTab.SetActive(false);
+        //_reportsTab.SetActive(false);
         _rulesTab.SetActive(true);
 
         // disabling notification bulles
@@ -79,12 +79,13 @@ public class ChatTabsManager : MonoBehaviour
         TextChatMsg.OnChatClicked -= SetTargetAccount;
     }
 
+    // ===================== Mod Action =====================
     public void SetTargetAccount(TextChatMsg chatMessage) // passing through and storing text data structure
     {
 
         _selectedMsg = chatMessage;
         _accountNameTextBox.text = chatMessage.GetAccountName();
-        _messageTextBox.text = "\"" + chatMessage.GetMessageText() + "\"";
+        _messageTextBox.text = chatMessage.GetMessageText();
         _TimeStampTextBox.text = chatMessage.GetTimeStamp();
 
         switch (chatMessage.GetBuddyStatus()) // setting buddy image based on enum reveived
@@ -104,7 +105,8 @@ public class ChatTabsManager : MonoBehaviour
                 break;
         }
 
-        ToggleTab(_modToolsTab);
+        OpenModTab();
+        //ToggleTab(_modToolsTab);
     }
 
     public void ModAction(int i)
@@ -117,7 +119,35 @@ public class ChatTabsManager : MonoBehaviour
             Debug.Log("Invoking mod action " + IntToPunishmentType(i) + " on account: " + _selectedMsg.GetAccountName());
         }
         OnModEvent?.Invoke(IntToPunishmentType(i), _selectedMsg);
-        ToggleTab(_modToolsTab);
+
+        CloseModTab();
+    }
+
+    // ===================== Tab Stuff =====================
+    public void ToggleRulesTab()
+    {
+        // Clicking the rules tab should toggle it and close the mod tab
+        _rulesTab.SetActive(!_rulesTab.activeSelf);
+        _modToolsTab.SetActive(false);
+    }
+
+    public void OpenModTab()
+    {
+        // Mod tab cant be clicked in scene, but when called hide rules (for RN)
+        _modToolsTab.SetActive(true);
+        _rulesTab.SetActive(false);
+    }
+
+    public void CloseModTab()
+    {
+        _modToolsTab.SetActive(false);
+    }
+
+    public void ToggleReportsTab()
+    {
+        // Reports tab should never close. Clicking the button should close the other tabs
+        _modToolsTab.SetActive(false);
+        _rulesTab.SetActive(false);
     }
 
     public void ToggleTab(GameObject tab) // toggles selected tab and closes all other ones that are open
@@ -143,6 +173,7 @@ public class ChatTabsManager : MonoBehaviour
         //if (temp.activeSelf && tab != temp) temp.SetActive(false);
     }
 
+    // ===================== Other UI Function =====================
     private void GenerateRuleList()
     {
         // generating string
