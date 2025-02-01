@@ -11,11 +11,15 @@ public class ReportsManager : MonoBehaviour
     [SerializeField] private RectTransform _chatArea;
     [SerializeField] public RectTransform _maskRect;
 
+    private ChatTabsManager _ctm;
+
     private List<TextChatMsg> _activeChatList = new List<TextChatMsg>();
 
     // ============== Setup ==============
     private void Start()
     {
+        _ctm = this.GetComponentInParent<ChatTabsManager>();
+
         ChatManager.OnMissedMessage += DisplayReportMsg;
     }
 
@@ -40,6 +44,8 @@ public class ReportsManager : MonoBehaviour
         _activeChatList.Add(msg);
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(_chatArea);
+
+        _ctm.ShowNotificationOnReportTab();
 
         LookForPastMsgs();
     }

@@ -172,6 +172,11 @@ public class ChatTabsManager : MonoBehaviour
         GenerateRuleList();
     }
 
+    public void ShowNotificationOnReportTab()
+    {
+        ActivateNotification(_reportsNotification);
+    }
+
     public void ActivateNotification(GameObject g) // activates notification icon (gameobject)
     {
         g.SetActive(true);
@@ -181,9 +186,6 @@ public class ChatTabsManager : MonoBehaviour
     {
          if(g.activeSelf) g.SetActive(false);
     }
-
-
-
 
     private PunishementType IntToPunishmentType(int i)
     {
