@@ -4412,7 +4412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SHRIMP BOXING STREAM | WORLDS BEST SHROXER
+  m_text: SHRIMP BOXING STREAM | SHRIMPLY THE BEST
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7cd118ad7b062a6498c4be5550207afb, type: 2}
   m_sharedMaterial: {fileID: -4552028524898917080, guid: 7cd118ad7b062a6498c4be5550207afb, type: 2}
@@ -4439,7 +4439,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7.1
+  m_fontSize: 7.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
