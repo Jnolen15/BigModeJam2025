@@ -43,6 +43,7 @@ public class ChatManager : MonoBehaviour
     {
         ChatTabsManager.OnModEvent += BanMsg;
         GameManager.OnNewViolationEnforced += NewViolation;
+        GameManager.OnNewChatSpeed += NewChatSpeed;
 
         StartStream();
     }
@@ -51,6 +52,7 @@ public class ChatManager : MonoBehaviour
     {
         ChatTabsManager.OnModEvent -= BanMsg;
         GameManager.OnNewViolationEnforced -= NewViolation;
+        GameManager.OnNewChatSpeed -= NewChatSpeed;
     }
 
     public void StartStream()
@@ -189,6 +191,11 @@ public class ChatManager : MonoBehaviour
         }
 
         Debug.Log("Added new rule and new message list: " + newViolation);
+    }
+
+    private void NewChatSpeed(Vector2 newSpeed)
+    {
+        _chatSpeed = newSpeed;
     }
 
     private void TestMessageForViolations(TextChatMsg chatMsg)

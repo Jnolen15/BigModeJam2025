@@ -807,15 +807,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71009f924ea89b4cbcc2781a035c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rulesList:
-  - No Profanity
-  - No Being Mean :(
-  - No Links
-  - No Messages Over 30 Characters
-  - No All Caps
-  - No Promoting
-  _violationsList: 010000000500000002000000060000000400000003000000
-  _difficultyIncreaseTime: 10
+  _difficultyLevels:
+  - levelUpTimer: 5
+    ViolationName: No Profanity
+    Violation: 1
+    ChatSpeed: {x: 2.2, y: 2.8}
+  - levelUpTimer: 10
+    ViolationName: No Being Mean :(
+    Violation: 5
+    ChatSpeed: {x: 1.8, y: 2.4}
+  - levelUpTimer: 10
+    ViolationName: No Links
+    Violation: 2
+    ChatSpeed: {x: 1.4, y: 2}
+  - levelUpTimer: 15
+    ViolationName: No Messages Over 30 Characters
+    Violation: 6
+    ChatSpeed: {x: 1, y: 1.6}
+  - levelUpTimer: 15
+    ViolationName: No All Caps
+    Violation: 4
+    ChatSpeed: {x: 0.6, y: 1.2}
+  - levelUpTimer: 15
+    ViolationName: No Promoting
+    Violation: 3
+    ChatSpeed: {x: 0.2, y: 0.8}
+  _difficultyIncreaseTimer: 0
 --- !u!1 &296250223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,7 +1385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.023449754, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.4999695, y: 0}
+  m_AnchoredPosition: {x: -4.4999847, y: 0}
   m_SizeDelta: {x: -9.923201, y: 4.0139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &653602950

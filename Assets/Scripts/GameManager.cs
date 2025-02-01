@@ -5,24 +5,35 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     // ============== Refrences / Variables ==============
-    [SerializeField] private List<string> _rulesList = new List<string>();
-    [SerializeField] private List<CommentsSO.Violations> _violationsList = new List<CommentsSO.Violations>();
-    [SerializeField] private int _difficultyIncreaseTime;
+    [SerializeField] private List<DifficultyLevel> _difficultyLevels = new List<DifficultyLevel>();
 
     private ChatTabsManager _ctm;
     private int _currentLevel;
     private int _maxLevel;
-    private float _difficultyIncreaseTimer;
+    [SerializeField] private float _difficultyIncreaseTimer;
+    private float _difficultyIncreaseTime;
+
+    [System.Serializable]
+    public class DifficultyLevel
+    {
+        public int levelUpTimer;
+        public string ViolationName;
+        public CommentsSO.Violations Violation;
+        public Vector2 ChatSpeed;
+    }
 
     public delegate void GMNewViolationEvent(CommentsSO.Violations violation);
     public static event GMNewViolationEvent OnNewViolationEnforced;
 
-    // ============== Setup ==============	
+    public delegate void GMNewChatSpeed(Vector2 speed);
+    public static event GMNewChatSpeed OnNewChatSpeed;
+
+    // ============== Setup ==============
     void Start()
     {
         _ctm = this.GetComponent<ChatTabsManager>();
 
-        _maxLevel = _violationsList.Count;
+        _maxLevel = _difficultyLevels.Count;
     }
 
     // ============== Function ==============
@@ -34,16 +45,21 @@ public class GameManager : MonoBehaviour
         if (_difficultyIncreaseTimer > 0)
             _difficultyIncreaseTimer -= Time.deltaTime;
         else
-        {
-            _difficultyIncreaseTimer = _difficultyIncreaseTime;
-            EnforceNewRule();
-        }
+            IncreaseDifficulty(_difficultyLevels[_currentLevel]);
     }
 
-    private void EnforceNewRule()
+    private void IncreaseDifficulty(DifficultyLevel dlevel)
     {
-        _ctm.AddRule(_rulesList[_currentLevel]);
-        OnNewViolationEnforced?.Invoke(_violationsList[_currentLevel]);
+        _difficultyIncreaseTime = dlevel.levelUpTimer;
+        _difficultyIncreaseTimer = _difficultyIncreaseTime;
+        EnforceNewRule(dlevel);
+        OnNewChatSpeed?.Invoke(dlevel.ChatSpeed);
+    }
+
+    private void EnforceNewRule(DifficultyLevel dlevel)
+    {
+        _ctm.AddRule(dlevel.ViolationName);
+        OnNewViolationEnforced?.Invoke(dlevel.Violation);
         _currentLevel++;
     }
 }
