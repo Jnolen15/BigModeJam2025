@@ -21,11 +21,13 @@ public class ReportsManager : MonoBehaviour
         _ctm = this.GetComponentInParent<ChatTabsManager>();
 
         ChatManager.OnMissedMessage += DisplayReportMsg;
+        ChatManager.OnFaseBan += DisplayFalseBanMsg;
     }
 
     public void OnDestroy()
     {
         ChatManager.OnMissedMessage -= DisplayReportMsg;
+        ChatManager.OnFaseBan += DisplayFalseBanMsg;
     }
 
     // ============== Function ==============
@@ -37,6 +39,22 @@ public class ReportsManager : MonoBehaviour
     public void DisplayReportMsg(CommentsSO.Violations violation, TextChatMsg chatMsg)
     {
         string msgText = $"<color=red>Violated rule {violation}: </color>" + chatMsg.GetMessageText();
+
+        TextChatMsg msg = Instantiate(_chatMsgPref, _chatArea).GetComponentInChildren<TextChatMsg>();
+        msg.SetupReportMsg(chatMsg.GetUsername(), msgText, chatMsg.GetBuddyStatus(), chatMsg.GetTimeStamp());
+
+        _activeChatList.Add(msg);
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(_chatArea);
+
+        _ctm.ShowNotificationOnReportTab();
+
+        LookForPastMsgs();
+    }
+
+    public void DisplayFalseBanMsg(CommentsSO.Violations violation, TextChatMsg chatMsg)
+    {
+        string msgText = $"<color=red>False ban: </color>" + chatMsg.GetMessageText();
 
         TextChatMsg msg = Instantiate(_chatMsgPref, _chatArea).GetComponentInChildren<TextChatMsg>();
         msg.SetupReportMsg(chatMsg.GetUsername(), msgText, chatMsg.GetBuddyStatus(), chatMsg.GetTimeStamp());

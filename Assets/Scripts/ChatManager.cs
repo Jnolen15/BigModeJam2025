@@ -34,6 +34,7 @@ public class ChatManager : MonoBehaviour
 
     public delegate void ChatManagerEvent(CommentsSO.Violations violation, TextChatMsg chatMsg);
     public static event ChatManagerEvent OnMissedMessage;
+    public static event ChatManagerEvent OnFaseBan;
 
     public delegate void ChatManagerScore(int score, int max);
     public static event ChatManagerScore OnScoreUpdated;
@@ -254,7 +255,9 @@ public class ChatManager : MonoBehaviour
         }
         else
         {
+            // false ban
             AdjustScore(-5);
+            OnFaseBan?.Invoke(violation, chatMsg);
         }
 
         chatMsg.StikeOutMsg();

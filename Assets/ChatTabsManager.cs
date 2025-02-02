@@ -82,7 +82,6 @@ public class ChatTabsManager : MonoBehaviour
     // ===================== Mod Action =====================
     public void SetTargetAccount(TextChatMsg chatMessage) // passing through and storing text data structure
     {
-
         _selectedMsg = chatMessage;
         _accountNameTextBox.text = chatMessage.GetAccountName();
         _messageTextBox.text = chatMessage.GetMessageText();

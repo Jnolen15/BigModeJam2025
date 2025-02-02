@@ -102,6 +102,7 @@ public class TextChatMsg : MonoBehaviour
                 break;
         }
     }
+
     // ============== Function ==============
     private void Update()
     {
