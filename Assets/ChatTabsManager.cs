@@ -254,15 +254,15 @@ public class ChatTabsManager : MonoBehaviour
         if (!_rulesTab.activeSelf) ActivateNotification(_rulesNotification);
     }
 
-    public void AddRule(string s) // adds rule to end of the list
+    public void AddRule(string s, PunishementType p) // adds rule to end of the list
     {
-        RulesList.Add(s);
+        RulesList.Add(s + " - " + PunishmentTypeToString(p));
         GenerateRuleList();
     }
 
-    public void RemoveRule(string s) // removes a specific rule from the list
+    public void RemoveRule(string s, PunishementType p) // removes a specific rule from the list
     {
-        RulesList.Remove(s);
+        RulesList.Remove(s + " - " + PunishmentTypeToString(p));
         GenerateRuleList();
     }
 
@@ -330,6 +330,29 @@ public class ChatTabsManager : MonoBehaviour
             default:
                 Debug.LogWarning("Invalid int for enum conversion");
                 return PunishementType.Timeout;
+        }
+    }
+
+    private string PunishmentTypeToString(PunishementType p)
+    {
+        switch (p)
+        {
+            case PunishementType.Timeout:
+                return "Timeout";
+            case PunishementType.Temp_Ban:
+                return "Temp Ban";
+            case PunishementType.Perma_Ban:
+                return "Perma Ban";
+            case PunishementType.Make_NonBuddy:
+                return "Make Non-Buddy";
+            case PunishementType.Make_Buddy:
+                return "Make Buddy";
+            case PunishementType.Make_VIB:
+                return "Make VIB";
+
+            default:
+                Debug.LogWarning("Invalid int for enum conversion");
+                return "invalid punishment type";
         }
     }
 }

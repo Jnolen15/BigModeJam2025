@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,13 +22,13 @@ public class ReportsManager : MonoBehaviour
         _ctm = this.GetComponentInParent<ChatTabsManager>();
 
         ChatManager.OnMissedMessage += DisplayReportMsg;
-        ChatManager.OnFaseBan += DisplayFalseBanMsg;
+        ChatManager.OnFalseBan += DisplayFalseBanMsg;
     }
 
     public void OnDestroy()
     {
         ChatManager.OnMissedMessage -= DisplayReportMsg;
-        ChatManager.OnFaseBan += DisplayFalseBanMsg;
+        ChatManager.OnFalseBan += DisplayFalseBanMsg;
     }
 
     // ============== Function ==============
@@ -36,7 +37,7 @@ public class ReportsManager : MonoBehaviour
         LayoutRebuilder.ForceRebuildLayoutImmediate(_chatArea);
     }
 
-    public void DisplayReportMsg(CommentsSO.Violations violation, TextChatMsg chatMsg)
+    public void DisplayReportMsg(CommentsSO.Violations violation, ChatTabsManager.PunishementType p, TextChatMsg chatMsg)
     {
         string msgText = $"<color=red>Violated rule {violation}: </color>" + chatMsg.GetMessageText();
 
@@ -52,9 +53,9 @@ public class ReportsManager : MonoBehaviour
         LookForPastMsgs();
     }
 
-    public void DisplayFalseBanMsg(CommentsSO.Violations violation, TextChatMsg chatMsg)
+    public void DisplayFalseBanMsg(CommentsSO.Violations violation, ChatTabsManager.PunishementType p, TextChatMsg chatMsg)
     {
-        string msgText = $"<color=red>False ban: </color>" + chatMsg.GetMessageText();
+        string msgText = $"<color=red>Wrongful Punishment " + p.ToString() + " on: </color>"+ chatMsg.GetMessageText();
 
         TextChatMsg msg = Instantiate(_chatMsgPref, _chatArea).GetComponentInChildren<TextChatMsg>();
         msg.SetupReportMsg(chatMsg.GetUsername(), msgText, chatMsg.GetBuddyStatus(), chatMsg.GetTimeStamp());

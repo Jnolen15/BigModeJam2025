@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static CommentsSO;
 
 public class ChatManager : MonoBehaviour
 {
@@ -33,10 +34,11 @@ public class ChatManager : MonoBehaviour
     private bool _gameEnded;
     private List<TextChatMsg> _activeChatList = new List<TextChatMsg>();
     [SerializeField] private List<CommentsSO.Violations> _violationsList = new List<CommentsSO.Violations>();
+    [SerializeField] private List<ChatTabsManager.PunishementType> _punishmentsList = new List<ChatTabsManager.PunishementType>();
 
-    public delegate void ChatManagerEvent(CommentsSO.Violations violation, TextChatMsg chatMsg);
+    public delegate void ChatManagerEvent(CommentsSO.Violations violation, ChatTabsManager.PunishementType punishment, TextChatMsg chatMsg);
     public static event ChatManagerEvent OnMissedMessage;
-    public static event ChatManagerEvent OnFaseBan;
+    public static event ChatManagerEvent OnFalseBan;
 
     public delegate void ChatManagerScore(int score, int max);
     public static event ChatManagerScore OnScoreUpdated;
@@ -185,9 +187,10 @@ public class ChatManager : MonoBehaviour
         LookForPastMsgs();
     }
 
-    private void NewViolation(CommentsSO.Violations newViolation)
+    private void NewViolation(CommentsSO.Violations newViolation, ChatTabsManager.PunishementType punishment)
     {
         _violationsList.Add(newViolation);
+        _punishmentsList.Add(punishment);
 
         switch (newViolation)
         {
@@ -212,7 +215,6 @@ public class ChatManager : MonoBehaviour
             default:
                 return;
         }
-
         Debug.Log("Added new rule and new message list: " + newViolation);
     }
 
@@ -234,7 +236,7 @@ public class ChatManager : MonoBehaviour
                 Debug.Log("Violating message was let past!! \n " + comment.Message);
 
                 // Send violation message to reports area
-                OnMissedMessage?.Invoke(violation, chatMsg);
+                OnMissedMessage?.Invoke(violation, ChatTabsManager.PunishementType.Temp_Ban, chatMsg); // punishment type is not used here just needs to be passed
 
                 AdjustScore(-5);
             }
@@ -258,15 +260,42 @@ public class ChatManager : MonoBehaviour
 
     public void BanMsg(ChatTabsManager.PunishementType p, TextChatMsg chatMsg)
     {
-        // something about punishment here?
-        if (p == ChatTabsManager.PunishementType.Make_Buddy || p == ChatTabsManager.PunishementType.Make_NonBuddy || p == ChatTabsManager.PunishementType.Make_VIB)
-            return;
-        
+        // checking to see if chat is actionable
         if (!_activeChatList.Contains(chatMsg))
         {
             Debug.LogWarning("Chat message not found in _activeChatList");
             return;
         }
+
+        int index = _violationsList.IndexOf(chatMsg.GetComment().violation); // returns -1 if item was not found
+        if (index == -1)
+        {
+            // not a violation
+            AdjustScore(-5);
+            OnFalseBan?.Invoke(chatMsg.GetComment().violation, p, chatMsg);
+        }
+        else
+        {
+            // was a recognized violation
+            if (p == _punishmentsList[index])
+            {
+                // correct punishment
+                AdjustScore(+5);
+            }
+            else
+            {
+                // incorrect punishment
+                AdjustScore(-3);
+                OnFalseBan?.Invoke(chatMsg.GetComment().violation, p, chatMsg);
+            }
+        }
+
+        // something about punishment here?
+        /*
+        if (p == ChatTabsManager.PunishementType.Make_Buddy || p == ChatTabsManager.PunishementType.Make_NonBuddy || p == ChatTabsManager.PunishementType.Make_VIB)
+            return;
+
+
 
         // check if violated rules
         CommentsSO comment = chatMsg.GetComment();
@@ -281,6 +310,8 @@ public class ChatManager : MonoBehaviour
             AdjustScore(-5);
             OnFaseBan?.Invoke(violation, chatMsg);
         }
+        s
+        */
 
         chatMsg.StikeOutMsg();
 

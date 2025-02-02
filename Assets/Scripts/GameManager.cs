@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ChatTabsManager;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour
     public static event GameManagerEvent OnGameStarted;
     public static event GameManagerEvent OnGameEnded;
 
-    public delegate void GMNewViolationEvent(CommentsSO.Violations violation);
+    public delegate void GMNewViolationEvent(CommentsSO.Violations violation, ChatTabsManager.PunishementType punishment);
     public static event GMNewViolationEvent OnNewViolationEnforced;
 
     public delegate void GMNewChatSpeed(Vector2 speed);
@@ -77,8 +79,9 @@ public class GameManager : MonoBehaviour
 
     private void EnforceNewRule(DifficultyLevel dlevel)
     {
-        _ctm.AddRule(dlevel.ViolationName);
-        OnNewViolationEnforced?.Invoke(dlevel.Violation);
+        ChatTabsManager.PunishementType p = GeneratePunishementType();
+        _ctm.AddRule(dlevel.ViolationName, p);
+        OnNewViolationEnforced?.Invoke(dlevel.Violation, p);
     }
 
     private void EndGame()
@@ -87,5 +90,32 @@ public class GameManager : MonoBehaviour
 
         _gameEnded = true;
         OnGameEnded?.Invoke();
+    }
+
+    // selects a punishemnt type from timeout, to perma ban, to make vib
+    private PunishementType GeneratePunishementType()
+    {
+        while (true)
+        {
+            switch (UnityEngine.Random.Range(0, 6))
+            {
+                case 0:
+                    return PunishementType.Timeout;
+                case 1:
+                    break; // unused punishments just loop for now
+                case 2:
+                    return PunishementType.Perma_Ban;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    return PunishementType.Make_VIB;
+
+                default:
+                    Debug.LogWarning("Invalid int for enum conversion");
+                    return PunishementType.Timeout;
+            }
+        }
     }
 }
