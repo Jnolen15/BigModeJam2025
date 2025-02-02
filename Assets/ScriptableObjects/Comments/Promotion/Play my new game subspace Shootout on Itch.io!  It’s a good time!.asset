@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f22aafa7a0e28fe488778183f1b68b21, type: 3}
-  m_Name: You suk
+  m_Name: "Play my new game subspace Shootout on Itch.io!  It\u2019s a good time!"
   m_EditorClassIdentifier: 
-  Message: You suk
-  violation: 5
+  Message: "Play my new game subspace Shootout on Itch.io!  It\u2019s a good time!"
+  violation: 3
