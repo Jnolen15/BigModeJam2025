@@ -160,6 +160,11 @@ public class TextChatMsg : MonoBehaviour
         return _usernameSO.GetUsername();
     }
 
+    public Color GetAccountNameColor()
+    {
+        return _usernameSO.ChatterColor;
+    }
+
     public ChatTabsManager.BuddyStatus GetBuddyStatus()
     {
         return _buddyStatus;

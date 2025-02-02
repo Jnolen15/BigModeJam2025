@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22aafa7a0e28fe488778183f1b68b21, type: 3}
   m_Name: Looser
   m_EditorClassIdentifier: 
-  Message: Looser
+  Message: ura Looser
   violation: 5

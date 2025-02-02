@@ -7335,27 +7335,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _difficultyLevels:
   - levelUpTimer: 5
-    ViolationName: No Profanity
+    ViolationName: Profanity
     Violation: 1
     ChatSpeed: {x: 2.2, y: 2.8}
   - levelUpTimer: 10
-    ViolationName: No Being Mean :(
+    ViolationName: Insulting Me
     Violation: 5
     ChatSpeed: {x: 1.8, y: 2.4}
   - levelUpTimer: 10
-    ViolationName: No Links
+    ViolationName: Links
     Violation: 2
     ChatSpeed: {x: 1.4, y: 2}
   - levelUpTimer: 15
-    ViolationName: No Messages Over 30 Words
+    ViolationName: Messages Over 30 Words
     Violation: 6
     ChatSpeed: {x: 1, y: 1.6}
   - levelUpTimer: 15
-    ViolationName: No All Caps
+    ViolationName: All Caps
     Violation: 4
     ChatSpeed: {x: 0.6, y: 1.2}
   - levelUpTimer: 15
-    ViolationName: No Promoting
+    ViolationName: Promoting
     Violation: 3
     ChatSpeed: {x: 0.2, y: 0.8}
   - levelUpTimer: 20

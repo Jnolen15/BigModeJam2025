@@ -100,6 +100,7 @@ public class ChatTabsManager : MonoBehaviour
         _selectedMsg = chatMessage;
         // ascribing data to text boxes
         _accountNameTextBox.text = chatMessage.GetAccountName();
+        _accountNameTextBox.color = chatMessage.GetAccountNameColor();
         _messageTextBox.text = chatMessage.GetMessageText();
         _TimeStampTextBox.text = chatMessage.GetTimeStamp();
 
