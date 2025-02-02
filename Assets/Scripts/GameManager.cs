@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
     private ChatTabsManager _ctm;
     private int _currentLevel;
     private int _maxLevel;
-    [SerializeField] private float _difficultyIncreaseTimer;
+    private float _difficultyIncreaseTimer = 8;
     private float _difficultyIncreaseTime;
+    private bool _gameStarted;
     private bool _gameEnded;
 
     [System.Serializable]
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     }
 
     public delegate void GameManagerEvent();
+    public static event GameManagerEvent OnGameStarted;
     public static event GameManagerEvent OnGameEnded;
 
     public delegate void GMNewViolationEvent(CommentsSO.Violations violation);
@@ -51,8 +53,13 @@ public class GameManager : MonoBehaviour
 
         if (_difficultyIncreaseTimer > 0)
             _difficultyIncreaseTimer -= Time.deltaTime;
-        else
+        else if (_gameStarted)
             IncreaseDifficulty(_difficultyLevels[_currentLevel]);
+        else
+        {
+            _gameStarted = true;
+            OnGameStarted?.Invoke();
+        }
     }
 
     private void IncreaseDifficulty(DifficultyLevel dlevel)

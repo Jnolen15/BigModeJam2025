@@ -45,8 +45,7 @@ public class ChatManager : MonoBehaviour
         ChatTabsManager.OnModEvent += BanMsg;
         GameManager.OnNewViolationEnforced += NewViolation;
         GameManager.OnNewChatSpeed += NewChatSpeed;
-
-        StartStream();
+        GameManager.OnGameStarted += StartStream;
     }
 
     public void OnDestroy()
@@ -54,6 +53,7 @@ public class ChatManager : MonoBehaviour
         ChatTabsManager.OnModEvent -= BanMsg;
         GameManager.OnNewViolationEnforced -= NewViolation;
         GameManager.OnNewChatSpeed -= NewChatSpeed;
+        GameManager.OnGameStarted -= StartStream;
     }
 
     public void StartStream()
