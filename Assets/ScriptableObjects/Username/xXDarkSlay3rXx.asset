@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: xXDarkSlay3rXx
   m_EditorClassIdentifier: 
   ChatterColor: {r: 0.55678195, g: 0.5383719, b: 0.10359038, a: 1}
+  BuddyLevel: 2

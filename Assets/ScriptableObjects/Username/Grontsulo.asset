@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Grontsulo
   m_EditorClassIdentifier: 
   ChatterColor: {r: 0.7014882, g: 0.66776025, b: 0.6616373, a: 1}
+  BuddyLevel: 1

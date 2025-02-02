@@ -43,17 +43,17 @@ public class TextChatMsg : MonoBehaviour
 
         // Something here for buddy badge
         // TODO make scriptable objects have buddy statuses instead of random
-        switch (UnityEngine.Random.Range(0, 2))
+        switch (username.BuddyLevel)
         {
-            case 0:
+            case 1:
                 _buddyStatus = ChatTabsManager.BuddyStatus.Non_Buddy;
                 _buddyImage.sprite = _nonBuddyIcon;
                 break;
-            case 1:
+            case 2:
                 _buddyStatus = ChatTabsManager.BuddyStatus.Buddy;
                 _buddyImage.sprite = _buddyIcon;
                 break;
-            case 2:
+            case 3:
                 _buddyStatus = ChatTabsManager.BuddyStatus.VIB;
                 _buddyImage.sprite = _vibIcon;
                 break;

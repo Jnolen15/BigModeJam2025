@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Juan
   m_EditorClassIdentifier: 
   ChatterColor: {r: 0.73066324, g: 0.48612052, b: 0.5594097, a: 1}
+  BuddyLevel: 3

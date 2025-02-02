@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: StinkySam
   m_EditorClassIdentifier: 
   ChatterColor: {r: 0.15978682, g: 0.5043966, b: 0.5900671, a: 1}
+  BuddyLevel: 1

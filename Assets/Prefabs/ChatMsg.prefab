@@ -710,6 +710,6 @@ MonoBehaviour:
   _message: {fileID: 8981925347783960802}
   _buddyImage: {fileID: 7823828625034135386}
   _moderatorIcon: {fileID: 21300000, guid: e752e2ec81ebbbd4192edc0a16a846e2, type: 3}
-  _nonBuddyIcon: {fileID: 21300000, guid: 480ecd1bffa6c6040a315ea62c9f5721, type: 3}
-  _buddyIcon: {fileID: 21300000, guid: cce8466dd35aec2458b0a296b5a7c78c, type: 3}
-  _vibIcon: {fileID: 21300000, guid: 91e6cf7d1315f7f4494d88b889383984, type: 3}
+  _nonBuddyIcon: {fileID: -2110799561, guid: 592c392dad90a834ea8f28ba9992c866, type: 3}
+  _buddyIcon: {fileID: -1432237688, guid: 592c392dad90a834ea8f28ba9992c866, type: 3}
+  _vibIcon: {fileID: 1041478090, guid: 592c392dad90a834ea8f28ba9992c866, type: 3}

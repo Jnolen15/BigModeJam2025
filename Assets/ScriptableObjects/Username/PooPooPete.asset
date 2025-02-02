@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: PooPooPete
   m_EditorClassIdentifier: 
   ChatterColor: {r: 0.056078322, g: 0.055980217, b: 0.02074705, a: 1}
+  BuddyLevel: 1

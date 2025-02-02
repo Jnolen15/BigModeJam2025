@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Joann
   m_EditorClassIdentifier: 
   ChatterColor: {r: 0.2565156, g: 0.27001372, b: 0.33675447, a: 1}
+  BuddyLevel: 3
