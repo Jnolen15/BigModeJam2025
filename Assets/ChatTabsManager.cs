@@ -16,6 +16,7 @@ public class ChatTabsManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _messageTextBox;
     [SerializeField] private TextMeshProUGUI _TimeStampTextBox;
     [SerializeField] private TextMeshProUGUI _rulesTextBox;
+    [SerializeField] private TextMeshProUGUI _viewerCountTextBox;
     [SerializeField] private Image _buddyStatusImage;
     [SerializeField] private GameObject _modToolsTab;
     [SerializeField] private GameObject _rulesTab;
@@ -70,8 +71,18 @@ public class ChatTabsManager : MonoBehaviour
         _rulesNotification.SetActive(false);
         _reportsNotification.SetActive(false);
 
+        // resetting mod tab to neutral
+        _selectedMsg = null;
+        _accountNameTextBox.text = "---";
+        _messageTextBox.text = "---";
+        _TimeStampTextBox.text = "-:--";
+        _buddyStatusImage.gameObject.SetActive(false);
+
         // initializing rules list
         GenerateRuleList();
+
+        // initializing viewer count coroutine
+        StartCoroutine(ManageViewerCount());
     }
 
     public void OnDestroy()
@@ -82,11 +93,15 @@ public class ChatTabsManager : MonoBehaviour
     // ===================== Mod Action =====================
     public void SetTargetAccount(TextChatMsg chatMessage) // passing through and storing text data structure
     {
+        // setting target message
         _selectedMsg = chatMessage;
+        // ascribing data to text boxes
         _accountNameTextBox.text = chatMessage.GetAccountName();
         _messageTextBox.text = chatMessage.GetMessageText();
         _TimeStampTextBox.text = chatMessage.GetTimeStamp();
 
+        // setting icon
+        _buddyStatusImage.gameObject.SetActive(true);
         switch (chatMessage.GetBuddyStatus()) // setting buddy image based on enum reveived
         {
             case BuddyStatus.Buddy:
@@ -120,6 +135,12 @@ public class ChatTabsManager : MonoBehaviour
         OnModEvent?.Invoke(IntToPunishmentType(i), _selectedMsg);
 
         CloseModTab();
+        // resetting mod tab to neutral
+        _selectedMsg = null;
+        _accountNameTextBox.text = "---";
+        _messageTextBox.text = "---";
+        _TimeStampTextBox.text = "-:--";
+        _buddyStatusImage.gameObject.SetActive(false);
     }
 
     // ===================== Tab Stuff =====================
@@ -237,6 +258,33 @@ public class ChatTabsManager : MonoBehaviour
     public void HideNotification(GameObject g) // hides notification icon
     {
          if(g.activeSelf) g.SetActive(false);
+    }
+
+    private IEnumerator ManageViewerCount()
+    {
+
+        float startingViewerCount = 1;
+        float viewerCount = startingViewerCount;
+        float viewerIncreaseRate = 1.01f; // rate at which the # of viewers increases
+        float viewerCountIncreaseRate = 0.99f; // rate at which the time between viewer count increases
+        float maxViewerCountIncrease = 3;
+        float minViewerCountIncrease = 1;
+        float maxViewerIncreaseTime = 10;
+        float minViewerIncreaseTime = 1;
+        _viewerCountTextBox.text = viewerCount.ToString();
+        while(true)
+        {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(minViewerIncreaseTime, maxViewerIncreaseTime));
+            //increasing viewers
+            viewerCount += UnityEngine.Random.Range(minViewerCountIncrease, maxViewerCountIncrease);
+            _viewerCountTextBox.text = MathF.Floor(viewerCount).ToString();
+            
+            // ramping up # of viewers that join and the space in between them joining
+            maxViewerIncreaseTime *= viewerCountIncreaseRate;
+            minViewerIncreaseTime *= viewerCountIncreaseRate;
+            minViewerCountIncrease *= viewerIncreaseRate;
+            maxViewerCountIncrease *= viewerCountIncreaseRate;
+        }
     }
 
     private PunishementType IntToPunishmentType(int i)
