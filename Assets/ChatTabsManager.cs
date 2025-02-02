@@ -25,6 +25,9 @@ public class ChatTabsManager : MonoBehaviour
     [SerializeField] private GameObject _reportsNotification;
     [SerializeField] private GameObject _modNotification;
     [SerializeField] private GameObject _messageNotFound;
+    [SerializeField] private GameObject _modToolsIndicator;
+    [SerializeField] private GameObject _rulesIndicator;
+    [SerializeField] private GameObject _reportsIndicator;
 
 
     // Asset references
@@ -160,6 +163,7 @@ public class ChatTabsManager : MonoBehaviour
         // Clicking the rules tab should toggle it and close the mod tab
         _rulesTab.SetActive(!_rulesTab.activeSelf);
         _modToolsTab.SetActive(false);
+        ToggleTabIndicators(_rulesIndicator);
     }
 
     public void OpenModTab()
@@ -168,6 +172,7 @@ public class ChatTabsManager : MonoBehaviour
         _modToolsTab.SetActive(true);
         _rulesTab.SetActive(false);
         _messageNotFound.SetActive(false);
+        ToggleTabIndicators(_modToolsIndicator);
     }
 
     public void CloseModTab()
@@ -180,6 +185,16 @@ public class ChatTabsManager : MonoBehaviour
         // Reports tab should never close. Clicking the button should close the other tabs
         _modToolsTab.SetActive(false);
         _rulesTab.SetActive(false);
+        ToggleTabIndicators(_reportsIndicator);
+    }
+
+    private void ToggleTabIndicators(GameObject indicator)
+    {
+        _modToolsIndicator.SetActive(false);
+        _reportsIndicator.SetActive(false);
+        _rulesIndicator.SetActive(false);
+
+        indicator.SetActive(true);
     }
 
     // OBSELETE
@@ -205,6 +220,13 @@ public class ChatTabsManager : MonoBehaviour
 
     public void OpenTab(GameObject tab) // opens selected tab and closes all others
     {
+        if (tab == _rulesTab)
+            ToggleTabIndicators(_rulesIndicator);
+        else if (tab == _modToolsTab)
+            ToggleTabIndicators(_modToolsIndicator);
+        else if (tab == _reportsTab)
+            ToggleTabIndicators(_reportsIndicator);
+
         tab.SetActive(true);
         // toggling other tabs closed
         var tempArray = new GameObject[] {_rulesTab, _modToolsTab};
