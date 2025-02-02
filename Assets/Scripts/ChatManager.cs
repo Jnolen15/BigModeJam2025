@@ -23,12 +23,14 @@ public class ChatManager : MonoBehaviour
     [SerializeField] private List<CommentsSO> _capsMSGList = new List<CommentsSO>();
     [SerializeField] private List<CommentsSO> _meanMSGList = new List<CommentsSO>();
     [SerializeField] private List<CommentsSO> _over30MSGList = new List<CommentsSO>();
+    [SerializeField] private List<CommentsSO> _streamOverMSGList = new List<CommentsSO>();
     private List<List<CommentsSO>> _violatingMessageCattegories = new List<List<CommentsSO>>();
 
     private int _currentScore;
     private float _msgtimer;
     private float _streamTimer;
     private bool _streamStarted;
+    private bool _gameEnded;
     private List<TextChatMsg> _activeChatList = new List<TextChatMsg>();
     [SerializeField] private List<CommentsSO.Violations> _violationsList = new List<CommentsSO.Violations>();
 
@@ -38,6 +40,7 @@ public class ChatManager : MonoBehaviour
 
     public delegate void ChatManagerScore(int score, int max);
     public static event ChatManagerScore OnScoreUpdated;
+    public static event ChatManagerScore OnFinalScore;
 
     // ============== Setup ==============
     private void Start()
@@ -46,6 +49,7 @@ public class ChatManager : MonoBehaviour
         GameManager.OnNewViolationEnforced += NewViolation;
         GameManager.OnNewChatSpeed += NewChatSpeed;
         GameManager.OnGameStarted += StartStream;
+        GameManager.OnGameEnded += EndStream;
     }
 
     public void OnDestroy()
@@ -54,11 +58,18 @@ public class ChatManager : MonoBehaviour
         GameManager.OnNewViolationEnforced -= NewViolation;
         GameManager.OnNewChatSpeed -= NewChatSpeed;
         GameManager.OnGameStarted -= StartStream;
+        GameManager.OnGameEnded -= EndStream;
     }
 
     public void StartStream()
     {
         _streamStarted = true;
+    }
+
+    public void EndStream()
+    {
+        _gameEnded = true;
+        OnFinalScore?.Invoke(_currentScore, _maxScore);
     }
 
     // ============== Function ==============
@@ -74,7 +85,12 @@ public class ChatManager : MonoBehaviour
         else
         {
             _msgtimer = Random.Range(_chatSpeed.x, _chatSpeed.y);
-            SendNewChat();
+            
+            if(_gameEnded)
+                SendNewGameOverChat();
+            else
+                SendNewChat();
+
             LookForPastMsgs();
         }
     }
@@ -96,6 +112,12 @@ public class ChatManager : MonoBehaviour
         CommentsSO comment = _violatingMessageCattegories[rand][Random.Range(0, _violatingMessageCattegories[rand].Count)];
 
         DisplayChatMsg(_usernameList[randUsername], comment);
+    }
+
+    private void SendNewGameOverChat()
+    {
+        int randUsername = Random.Range(0, _usernameList.Count);
+        DisplayChatMsg(_usernameList[randUsername], _streamOverMSGList[Random.Range(0, _streamOverMSGList.Count)]);
     }
 
     private void LookForPastMsgs()

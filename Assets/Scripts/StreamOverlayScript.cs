@@ -9,6 +9,9 @@ public class StreamOverlayScript : MonoBehaviour
     [SerializeField] private GameObject _startingScreen;
     [SerializeField] private TextMeshProUGUI _startingTimer;
 
+    [SerializeField] private GameObject _endingScreen;
+    [SerializeField] private TextMeshProUGUI _scoringText;
+
     private float _countdownTimer;
     private bool _gameStarted;
 
@@ -16,6 +19,8 @@ public class StreamOverlayScript : MonoBehaviour
     void Start()
     {
         GameManager.OnGameStarted += HideStartingScreen;
+        GameManager.OnGameEnded += ShowEnd;
+        ChatManager.OnFinalScore += UpdateFinalScore;
 
         _countdownTimer = 8;
     }
@@ -23,6 +28,8 @@ public class StreamOverlayScript : MonoBehaviour
     private void OnDestroy()
     {
         GameManager.OnGameStarted -= HideStartingScreen;
+        GameManager.OnGameEnded -= ShowEnd;
+        ChatManager.OnFinalScore -= UpdateFinalScore;
     }
 
     // ============== Function ==============
@@ -41,5 +48,15 @@ public class StreamOverlayScript : MonoBehaviour
     private void HideStartingScreen()
     {
         _startingScreen.SetActive(false);
+    }
+
+    private void ShowEnd()
+    {
+        _endingScreen.SetActive(true);
+    }
+
+    private void UpdateFinalScore(int finalScore, int maxScore)
+    {
+        _scoringText.text = $"Ending Streamer Approval: {finalScore} out of {maxScore}";
     }
 }
