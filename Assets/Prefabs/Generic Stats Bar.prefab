@@ -50,10 +50,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dc708640135d4649a62d096c5557b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartingFillPercent: 50
   _numberText: {fileID: 6703381836376551565}
   _fillImage: {fileID: 2477104030574892978}
   _maxValue: 100
   _minValue: -100
+  _barType: 0
 --- !u!1 &1412870356044111800
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +310,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +50
+  m_text: +0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7cd118ad7b062a6498c4be5550207afb, type: 2}
   m_sharedMaterial: {fileID: -4552028524898917080, guid: 7cd118ad7b062a6498c4be5550207afb, type: 2}
