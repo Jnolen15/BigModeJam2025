@@ -63,7 +63,6 @@ public class ChatTabsManager : MonoBehaviour
 
         // starting on rules tab
         _modToolsTab.SetActive(false);
-        //_reportsTab.SetActive(false);
         _rulesTab.SetActive(true);
 
         // disabling notification bulles
@@ -163,12 +162,10 @@ public class ChatTabsManager : MonoBehaviour
         _rulesTab.SetActive(false);
     }
 
+    // OBSELETE
     public void ToggleTab(GameObject tab) // toggles selected tab and closes all other ones that are open
     {
         tab.SetActive(!tab.activeSelf);
-
-        // closing notifications
-        // TODO: close notifications on CLOSE, not open
 
         // toggling other tabs closed
         var tempArray = new GameObject[] { _rulesTab, _modToolsTab, _reportsTab };
@@ -186,6 +183,17 @@ public class ChatTabsManager : MonoBehaviour
         //if (temp.activeSelf && tab != temp) temp.SetActive(false);
     }
 
+    public void OpenTab(GameObject tab) // opens selected tab and closes all others
+    {
+        tab.SetActive(true);
+        // toggling other tabs closed
+        var tempArray = new GameObject[] {_rulesTab, _modToolsTab};
+        foreach (GameObject temp in tempArray)
+        {
+            if (temp.activeSelf && tab != temp) temp.SetActive(false);
+        }
+    }
+
     // ===================== Other UI Function =====================
     private void GenerateRuleList()
     {
@@ -201,7 +209,7 @@ public class ChatTabsManager : MonoBehaviour
         _rulesTextBox.text = rulesList;
 
         // Activating tab notification
-        ActivateNotification(_rulesNotification);
+        if (!_rulesTab.activeSelf) ActivateNotification(_rulesNotification);
     }
 
     public void AddRule(string s) // adds rule to end of the list
@@ -218,7 +226,8 @@ public class ChatTabsManager : MonoBehaviour
 
     public void ShowNotificationOnReportTab()
     {
-        ActivateNotification(_reportsNotification);
+        // reports is always open so you have to check if others aren't open
+        if (!_rulesTab.activeSelf && !_modToolsTab.activeSelf) ActivateNotification(_reportsNotification);
     }
 
     public void ActivateNotification(GameObject g) // activates notification icon (gameobject)
