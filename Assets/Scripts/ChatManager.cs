@@ -194,22 +194,22 @@ public class ChatManager : MonoBehaviour
 
         switch (newViolation)
         {
-            case CommentsSO.Violations.NoAllCaps:
+            case CommentsSO.Violations.AllCaps:
                 _violatingMessageCattegories.Add(_capsMSGList);
                 break;
-            case CommentsSO.Violations.NoLinks:
+            case CommentsSO.Violations.Links:
                 _violatingMessageCattegories.Add(_linksMSGList);
                 break;
-            case CommentsSO.Violations.NoMean:
+            case CommentsSO.Violations.Mean:
                 _violatingMessageCattegories.Add(_meanMSGList);
                 break;
-            case CommentsSO.Violations.NoMessagesOver30:
+            case CommentsSO.Violations.MessagesOver30:
                 _violatingMessageCattegories.Add(_over30MSGList);
                 break;
-            case CommentsSO.Violations.NoProfanity:
+            case CommentsSO.Violations.Profanity:
                 _violatingMessageCattegories.Add(_profanityMSGList);
                 break;
-            case CommentsSO.Violations.NoPromoting:
+            case CommentsSO.Violations.Promoting:
                 _violatingMessageCattegories.Add(_promotingMSGList);
                 break;
             default:
