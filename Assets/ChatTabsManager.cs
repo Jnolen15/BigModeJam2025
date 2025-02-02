@@ -104,10 +104,10 @@ public class ChatTabsManager : MonoBehaviour
         _buddyStatusImage.gameObject.SetActive(true);
         switch (chatMessage.GetBuddyStatus()) // setting buddy image based on enum reveived
         {
-            case BuddyStatus.Buddy:
+            case BuddyStatus.Non_Buddy:
                 _buddyStatusImage.sprite = _nonBuddyIcon;
                 break;
-            case BuddyStatus.Non_Buddy:
+            case BuddyStatus.Buddy:
                 _buddyStatusImage.sprite = _buddyIcon;
                 break;
             case BuddyStatus.VIB:
