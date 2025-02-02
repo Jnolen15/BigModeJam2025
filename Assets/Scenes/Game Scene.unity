@@ -7007,7 +7007,7 @@ MonoBehaviour:
     Violation: 2
     ChatSpeed: {x: 1.4, y: 2}
   - levelUpTimer: 15
-    ViolationName: No Messages Over 30 Characters
+    ViolationName: No Messages Over 30 Words
     Violation: 6
     ChatSpeed: {x: 1, y: 1.6}
   - levelUpTimer: 15
