@@ -263,7 +263,7 @@ public class ChatTabsManager : MonoBehaviour
     private IEnumerator ManageViewerCount()
     {
 
-        float startingViewerCount = 1;
+        float startingViewerCount = 50;
         float viewerCount = startingViewerCount;
         float viewerIncreaseRate = 1.01f; // rate at which the # of viewers increases
         float viewerCountIncreaseRate = 0.99f; // rate at which the time between viewer count increases
