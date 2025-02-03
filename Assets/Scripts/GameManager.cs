@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using static ChatTabsManager;
 
 public class GameManager : MonoBehaviour
 {
     // ============== Refrences / Variables ==============
+    [SerializeField] private TextMeshProUGUI _streamEndingTimer;
     [SerializeField] private List<DifficultyLevel> _difficultyLevels = new List<DifficultyLevel>();
 
     private ChatTabsManager _ctm;
@@ -53,6 +55,11 @@ public class GameManager : MonoBehaviour
         if (_currentLevel >= _maxLevel)
             EndGame();
 
+        int seconds = ((int)_difficultyIncreaseTimer % 60);
+        int minutes = ((int)_difficultyIncreaseTimer / 60);
+        string timestamp = string.Format("{0:00}:{1:00}", minutes, seconds);
+        _streamEndingTimer.text = "Stream Ending in " + timestamp;
+
         if (_difficultyIncreaseTimer > 0)
             _difficultyIncreaseTimer -= Time.deltaTime;
         else if (_gameStarted)
@@ -75,6 +82,10 @@ public class GameManager : MonoBehaviour
         OnNewChatSpeed?.Invoke(dlevel.ChatSpeed);
 
         _currentLevel++;
+
+        // stream ending timer
+        if(_currentLevel == _maxLevel - 1)
+            _streamEndingTimer.gameObject.SetActive(true);
     }
 
     private void EnforceNewRule(DifficultyLevel dlevel)
@@ -90,6 +101,8 @@ public class GameManager : MonoBehaviour
 
         _gameEnded = true;
         OnGameEnded?.Invoke();
+
+        _streamEndingTimer.gameObject.SetActive(false);
     }
 
     // selects a punishemnt type from timeout, to perma ban, to make vib
