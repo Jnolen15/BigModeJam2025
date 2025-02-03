@@ -3779,8 +3779,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.4379e-10, y: -2.6000175}
-  m_SizeDelta: {x: 112.77776, y: 112.833336}
+  m_AnchoredPosition: {x: 3.4379e-10, y: 6.9592}
+  m_SizeDelta: {x: 124.4771, y: 112.8333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &952393012
 MonoBehaviour:
@@ -3802,7 +3802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -779661882, guid: 999b4b2a6d6adba42b7a16d9fd50ff87, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91e6cf7d1315f7f4494d88b889383984, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4519,7 +4519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 62.6}
+  m_AnchoredPosition: {x: 0, y: 79.64}
   m_SizeDelta: {x: 300.4316, y: 51.6477}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1187553187
@@ -5874,6 +5874,15 @@ MonoBehaviour:
   _startingTimer: {fileID: 1530203413}
   _endingScreen: {fileID: 1691008857}
   _scoringText: {fileID: 175172600}
+  _endEmoteImage: {fileID: 952393012}
+  _topScoreSprite: {fileID: -1046097931, guid: 999b4b2a6d6adba42b7a16d9fd50ff87, type: 3}
+  _goodScoreSprite: {fileID: 21300000, guid: 91e6cf7d1315f7f4494d88b889383984, type: 3}
+  _badScoreSprite: {fileID: 21300000, guid: 203921d431495334ea78f6a7e51f1923, type: 3}
+  _bottomScoreSprite: {fileID: 21300000, guid: 480ecd1bffa6c6040a315ea62c9f5721, type: 3}
+  _topScoreString: Fantastic Stream!
+  _goodScoreString: Great Stream!
+  _badScoreString: Rough Stream.
+  _bottomScoreString: Profane Stream.
 --- !u!82 &1533229272
 AudioSource:
   m_ObjectHideFlags: 0
