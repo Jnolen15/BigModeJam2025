@@ -7,9 +7,9 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 
 
-public class AudioMixer : MonoBehaviour
+public class VolumeControls : MonoBehaviour
 {
-    [SerializeField] private AudioMixer mixer;
+    [SerializeField] private AudioMixer _mixer;
     [SerializeField] Slider AudioSlider;
 
     const string MIXER_SOUND = "AllVolume";
@@ -20,6 +20,6 @@ public class AudioMixer : MonoBehaviour
 
     void SetVolume(float value)
     {
-        //mixer.SetFloat(MIXER_SOUND, Mathf.Log10(value) * 20);
+        _mixer.SetFloat(MIXER_SOUND, Mathf.Log10(value) * 20);
     }
 }

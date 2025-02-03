@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1c9af5117212b84688d6390e301c553, type: 3}
   m_Name: Buddies
   m_EditorClassIdentifier: 
-  StreamerDialogue: 
+  StreamerDialogue: My buddies how would you rate my gameplay?
   Topics: 0
