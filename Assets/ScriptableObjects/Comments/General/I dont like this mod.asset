@@ -10,9 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f22aafa7a0e28fe488778183f1b68b21, type: 3}
-  m_Name: L + Ratio
+  m_Name: I dont like this mod
   m_EditorClassIdentifier: 
-  Message: 'L + Ratio
-
-'
+  Message: I dont like this mod
   violation: 0
