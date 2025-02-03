@@ -286,8 +286,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1115905464}
   - {fileID: 2093951172}
+  - {fileID: 1115905464}
   m_Father: {fileID: 751255892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4515,7 +4515,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2974984095423578214, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2974984095423578214, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2974984095423578214, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -4524,7 +4528,7 @@ PrefabInstance:
     - target: {fileID: 2974984095423578214, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1935136036}
+      objectReference: {fileID: 2122485328}
     - target: {fileID: 2974984095423578214, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -4535,7 +4539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2974984095423578214, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenTab
+      value: LoadMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 2974984095423578214, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -4543,7 +4547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2974984095423578214, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ChatTabsManager, Assembly-CSharp
+      value: MainMenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2974984095423578214, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -4552,14 +4556,14 @@ PrefabInstance:
     - target: {fileID: 2974984095423578214, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 93076484}
+      objectReference: {fileID: 0}
     - target: {fileID: 2974984095423578214, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 576985935}
     - target: {fileID: 2974984095423578214, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2974984095423578214, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -4649,9 +4653,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5260717652785666718, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5260717652785666718, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5757908695396891247, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_Name
       value: Back Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757908695396891247, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8243424893485907583, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       propertyPath: m_text
