@@ -715,6 +715,10 @@ MonoBehaviour:
   _nonBuddyIcon: {fileID: -2110799561, guid: 592c392dad90a834ea8f28ba9992c866, type: 3}
   _buddyIcon: {fileID: -1432237688, guid: 592c392dad90a834ea8f28ba9992c866, type: 3}
   _vibIcon: {fileID: 1041478090, guid: 592c392dad90a834ea8f28ba9992c866, type: 3}
+  _baseimg: {fileID: 1744515797344902777}
+  _colorBase: {r: 0.8627451, g: 0.8784314, b: 0.8509804, a: 1}
+  _colorCotClickable: {r: 0.68551975, g: 0.745283, b: 0.6999272, a: 1}
+  _colorhighlighted: {r: 0.8490566, g: 0.6928622, b: 0.8012443, a: 1}
 --- !u!114 &6520361526595533646
 MonoBehaviour:
   m_ObjectHideFlags: 0

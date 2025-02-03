@@ -18,6 +18,10 @@ public class TextChatMsg : MonoBehaviour
     [SerializeField] private Sprite _nonBuddyIcon;
     [SerializeField] private Sprite _buddyIcon;
     [SerializeField] private Sprite _vibIcon;
+    [SerializeField] private Image _baseimg;
+    [SerializeField] private Color _colorBase;
+    [SerializeField] private Color _colorCotClickable;
+    [SerializeField] private Color _colorhighlighted;
 
     private CommentsSO _commentSO;
     private UsernamesSO _usernameSO;
@@ -75,6 +79,7 @@ public class TextChatMsg : MonoBehaviour
 
         _buddyImage.sprite = _moderatorIcon;
         _buddyImage.color = Color.red;
+        _baseimg.color = _colorCotClickable;
     }
 
     public void SetupReportMsg(UsernamesSO username, string comment, ChatTabsManager.BuddyStatus buddyStat, string timeStamp)
@@ -116,6 +121,13 @@ public class TextChatMsg : MonoBehaviour
 
         // OnChatClicked?.Invoke(ChatTabsManager.BuddyStatus.Non_Buddy, _chatterName.text, _timeStamp.text, _message.text, this);
         OnChatClicked?.Invoke(this);
+
+        _baseimg.color = _colorhighlighted;
+    }
+
+    public void ResetColor()
+    {
+        _baseimg.color = _colorBase;
     }
 
     public void DestroyMsg()
@@ -127,6 +139,14 @@ public class TextChatMsg : MonoBehaviour
     {
         _notClickable = true;
         _message.textStyle = TMP_Settings.defaultStyleSheet.GetStyle("Strike");
+        _baseimg.color = _colorCotClickable;
+    }
+
+    public void VIBMsg()
+    {
+        _notClickable = true;
+        _buddyImage.sprite = _vibIcon;
+        _baseimg.color = _colorCotClickable;
     }
 
     // ============== Helpers ==============
