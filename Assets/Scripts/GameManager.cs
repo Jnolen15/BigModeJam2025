@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     // ============== Refrences / Variables ==============
     [SerializeField] private TextMeshProUGUI _streamEndingTimer;
+    [SerializeField] private AudioSource _newRuleSound;
     [SerializeField] private List<DifficultyLevel> _difficultyLevels = new List<DifficultyLevel>();
 
     private ChatTabsManager _ctm;
@@ -93,6 +94,7 @@ public class GameManager : MonoBehaviour
         ChatTabsManager.PunishementType p = GeneratePunishementType();
         _ctm.AddRule(dlevel.ViolationName, p);
         OnNewViolationEnforced?.Invoke(dlevel.Violation, p);
+        _newRuleSound.Play();
     }
 
     private void EndGame()
