@@ -2744,6 +2744,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4234590008073897381, guid: 24f8de347b5209a47bb3024dc18a7caf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4259005107424609609, guid: 24f8de347b5209a47bb3024dc18a7caf, type: 3}
       propertyPath: m_Name
       value: ShrimpFighter4
@@ -2752,6 +2756,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 1c6e916e22cc8454688165eca6b3a62a, type: 3}
+    - target: {fileID: 6520229219922467684, guid: 24f8de347b5209a47bb3024dc18a7caf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9154320391427171351, guid: 24f8de347b5209a47bb3024dc18a7caf, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.0290625
@@ -3177,7 +3185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &764409833
 RectTransform:
   m_ObjectHideFlags: 0
