@@ -101,6 +101,7 @@ public class StreamerDialogueManager : MonoBehaviour
     {
 
         StopCoroutine("ShowDialogue");
+        gameObject.GetComponent<AudioSource>().Stop();
         Streamer.GetComponent<PlayableDirector>().enabled = true;
         //Use Scriptable Object here
         _textMessaage.text = "OH SHELL YEAH! WE WON BUDDIES";
@@ -132,6 +133,7 @@ public class StreamerDialogueManager : MonoBehaviour
     public IEnumerator ReactionDialogueLose()
     {
         StopCoroutine("ShowDialogue");
+        gameObject.GetComponent<AudioSource>().Stop();
         Streamer.GetComponent<PlayableDirector>().enabled = true;
         //Use Scriptable Object here
         _textMessaage.text = "Oh shucks! looks like we lost buddies";
