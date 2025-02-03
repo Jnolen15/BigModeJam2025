@@ -15,7 +15,7 @@ public class CommentsSO : ScriptableObject
         Links,
         Promoting,
         AllCaps,
-        Mean,
+        Insulting,
         MessagesOver30,
     }
 

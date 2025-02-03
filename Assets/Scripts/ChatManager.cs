@@ -210,7 +210,7 @@ public class ChatManager : MonoBehaviour
             case CommentsSO.Violations.Links:
                 _violatingMessageCattegories.Add(_linksMSGList);
                 break;
-            case CommentsSO.Violations.Mean:
+            case CommentsSO.Violations.Insulting:
                 _violatingMessageCattegories.Add(_meanMSGList);
                 break;
             case CommentsSO.Violations.MessagesOver30:
