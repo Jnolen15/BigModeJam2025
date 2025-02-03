@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22aafa7a0e28fe488778183f1b68b21, type: 3}
   m_Name: "It\u2019s my birthday!"
   m_EditorClassIdentifier: 
-  Message: 
+  Message: It's my birthday! <sprite name="ColonThree">
   violation: 0

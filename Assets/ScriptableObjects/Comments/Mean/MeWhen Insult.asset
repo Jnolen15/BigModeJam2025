@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f22aafa7a0e28fe488778183f1b68b21, type: 3}
-  m_Name: Eat the streamer
+  m_Name: MeWhen Insult
   m_EditorClassIdentifier: 
-  Message: Eat the streamer
+  Message: This is what I look like when I have to watch DUMB IMDIOT streamer ->
+    <sprite name="MeWhen">
   violation: 5
