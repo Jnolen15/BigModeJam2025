@@ -32,7 +32,7 @@ public class StreamerDialogueManager : MonoBehaviour
     {
 
         GameManager.OnGameStarted += StartDialogue;
-        GameManager.OnGameStarted += EndDialogue;
+        GameManager.OnGameEnded += EndDialogue;
         _textMessaage = DialogueTextBox.GetComponent<TextMeshProUGUI>();
         _image = Streamer.GetComponent<UnityEngine.UI.Image>().overrideSprite;
         ChooseTimeline();
@@ -45,7 +45,7 @@ public class StreamerDialogueManager : MonoBehaviour
     public void OnDestroy()
     {
         GameManager.OnGameStarted -= StartDialogue;
-        GameManager.OnGameStarted -= EndDialogue;
+        GameManager.OnGameEnded -= EndDialogue;
     }
 
     public void StartDialogue()
@@ -54,8 +54,11 @@ public class StreamerDialogueManager : MonoBehaviour
     }
     public void EndDialogue()
     {
-        //_endDialogue = true;
-    }
+        _endDialogue = true;
+        GameWonTimeline.SetActive(false);
+        GameLoseTimeline.SetActive(false);
+        gameObject.GetComponent<AudioSource>().Stop();
+}
 
     //Take a random amount of seconds for streamer to talk
     //Take a random SO from the list and get the dialogue
@@ -99,28 +102,29 @@ public class StreamerDialogueManager : MonoBehaviour
     }
     public IEnumerator ReactionDialogueWin()
     {
+        if (!_endDialogue)
+        {
+            StopCoroutine("ShowDialogue");
+            gameObject.GetComponent<AudioSource>().Stop();
+            Streamer.GetComponent<PlayableDirector>().enabled = true;
+            //Use Scriptable Object here
+            _textMessaage.text = "OH SHELL YEAH! WE WON BUDDIES";
+            gameObject.GetComponent<AudioSource>().PlayOneShot(StreamerAudio[1]);
 
-        StopCoroutine("ShowDialogue");
-        gameObject.GetComponent<AudioSource>().Stop();
-        Streamer.GetComponent<PlayableDirector>().enabled = true;
-        //Use Scriptable Object here
-        _textMessaage.text = "OH SHELL YEAH! WE WON BUDDIES";
-        gameObject.GetComponent<AudioSource>().PlayOneShot(StreamerAudio[1]);
 
-            
-        DialogueBox.SetActive(true);
+            DialogueBox.SetActive(true);
 
-        yield return new WaitForSeconds(6);
-        GameWonTimeline.SetActive(false);
-        GameWonTimeline.GetComponent<PlayableDirector>().initialTime = 0;
-        Streamer.GetComponent<PlayableDirector>().initialTime = 0;
-        Streamer.GetComponent<PlayableDirector>().enabled = false;
-        DialogueBox.SetActive(false);
+            yield return new WaitForSeconds(6);
+            GameWonTimeline.SetActive(false);
+            GameWonTimeline.GetComponent<PlayableDirector>().initialTime = 0;
+            Streamer.GetComponent<PlayableDirector>().initialTime = 0;
+            Streamer.GetComponent<PlayableDirector>().enabled = false;
+            DialogueBox.SetActive(false);
 
-        ChooseTimeline();
+            ChooseTimeline();
 
-        StartCoroutine("ShowDialogue");
-        
+            StartCoroutine("ShowDialogue");
+        }
     }
 
     //For the timeline emitter when you lose
@@ -132,23 +136,26 @@ public class StreamerDialogueManager : MonoBehaviour
     }
     public IEnumerator ReactionDialogueLose()
     {
-        StopCoroutine("ShowDialogue");
-        gameObject.GetComponent<AudioSource>().Stop();
-        Streamer.GetComponent<PlayableDirector>().enabled = true;
-        //Use Scriptable Object here
-        _textMessaage.text = "Oh shucks! looks like we lost buddies";
-        gameObject.GetComponent<AudioSource>().PlayOneShot(StreamerAudio[2]);
+        if (!_endDialogue)
+        {
+            StopCoroutine("ShowDialogue");
+            gameObject.GetComponent<AudioSource>().Stop();
+            Streamer.GetComponent<PlayableDirector>().enabled = true;
+            //Use Scriptable Object here
+            _textMessaage.text = "Oh shucks! looks like we lost buddies";
+            gameObject.GetComponent<AudioSource>().PlayOneShot(StreamerAudio[2]);
 
-        DialogueBox.SetActive(true);
+            DialogueBox.SetActive(true);
 
-        yield return new WaitForSeconds(6);
-        GameLoseTimeline.SetActive(false);
-        GameLoseTimeline.GetComponent<PlayableDirector>().initialTime = 0;
-        Streamer.GetComponent<PlayableDirector>().initialTime = 0;
-        Streamer.GetComponent<PlayableDirector>().enabled = false;
-        DialogueBox.SetActive(false);
-        ChooseTimeline();
-        StartCoroutine("ShowDialogue");
+            yield return new WaitForSeconds(6);
+            GameLoseTimeline.SetActive(false);
+            GameLoseTimeline.GetComponent<PlayableDirector>().initialTime = 0;
+            Streamer.GetComponent<PlayableDirector>().initialTime = 0;
+            Streamer.GetComponent<PlayableDirector>().enabled = false;
+            DialogueBox.SetActive(false);
+            ChooseTimeline();
+            StartCoroutine("ShowDialogue");
+        }
     }
 
     IEnumerator StartStream()
