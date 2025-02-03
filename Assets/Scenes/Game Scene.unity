@@ -6151,6 +6151,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e8e6309c6fc8daa4f980e6da96a8326e, type: 3}
   - {fileID: 8300000, guid: 295a522e1a3320a4ab5194f32c0f396c, type: 3}
   _streamerTalkTopicList:
+  - {fileID: 11400000, guid: b0d6f4aea51e47447a211e687c7eb7a6, type: 2}
+  - {fileID: 11400000, guid: 5b935513c0ca8704bae8887636400fa6, type: 2}
+  - {fileID: 11400000, guid: d3c85c156bbcfd649a2d0bb2b9cfe1b3, type: 2}
+  - {fileID: 11400000, guid: 1266c4d8e8c3b2542a627de614f1d9d8, type: 2}
+  - {fileID: 11400000, guid: 7b1707e725022a447b9dc007985edd80, type: 2}
+  - {fileID: 11400000, guid: 8d42ac01918719f408efd7757390f201, type: 2}
+  - {fileID: 11400000, guid: 9d31c489ab663f74797c888f550282b1, type: 2}
+  - {fileID: 11400000, guid: ffa95de9d23c25443b19d0eaa8f8f5b5, type: 2}
   - {fileID: 11400000, guid: d2037ce608f3bfd47b7365b4e241511d, type: 2}
   - {fileID: 11400000, guid: 5c6768e4a8c85bb42be44a9f29c0245e, type: 2}
   - {fileID: 11400000, guid: 330ab6a773462934190f05c952a87da4, type: 2}
