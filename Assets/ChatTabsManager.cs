@@ -96,6 +96,9 @@ public class ChatTabsManager : MonoBehaviour
     // ===================== Mod Action =====================
     public void SetTargetAccount(TextChatMsg chatMessage) // passing through and storing text data structure
     {
+        if (_selectedMsg != null)
+            _selectedMsg.ResetColor();
+
         // setting target message
         _selectedMsg = chatMessage;
         // ascribing data to text boxes

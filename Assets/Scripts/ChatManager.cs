@@ -300,30 +300,10 @@ public class ChatManager : MonoBehaviour
             }
         }
 
-        // something about punishment here?
-        /*
-        if (p == ChatTabsManager.PunishementType.Make_Buddy || p == ChatTabsManager.PunishementType.Make_NonBuddy || p == ChatTabsManager.PunishementType.Make_VIB)
-            return;
-
-
-
-        // check if violated rules
-        CommentsSO comment = chatMsg.GetComment();
-        CommentsSO.Violations violation = comment.violation;
-        if (violation != CommentsSO.Violations.None && _violationsList.Contains(violation))
-        {
-            AdjustScore(+5);
-        }
+        if (p == ChatTabsManager.PunishementType.Make_VIB)
+            chatMsg.VIBMsg();
         else
-        {
-            // false ban
-            AdjustScore(-5);
-            OnFaseBan?.Invoke(violation, chatMsg);
-        }
-        s
-        */
-
-        chatMsg.StikeOutMsg();
+            chatMsg.StikeOutMsg();
 
         DisplayModMsg(p.ToString());
     }
