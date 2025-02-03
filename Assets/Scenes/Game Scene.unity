@@ -7625,11 +7625,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _difficultyLevels:
-  - levelUpTimer: 30
+  - levelUpTimer: 15
     ViolationName: Profanity
     Violation: 1
     ChatSpeed: {x: 2.2, y: 2.8}
-  - levelUpTimer: 30
+  - levelUpTimer: 25
     ViolationName: Insulting Me
     Violation: 5
     ChatSpeed: {x: 1.8, y: 2.4}
@@ -7641,15 +7641,15 @@ MonoBehaviour:
     ViolationName: Messages Over 30 Words
     Violation: 6
     ChatSpeed: {x: 1, y: 1.6}
-  - levelUpTimer: 30
+  - levelUpTimer: 40
     ViolationName: All Caps
     Violation: 4
     ChatSpeed: {x: 0.6, y: 1.2}
-  - levelUpTimer: 30
+  - levelUpTimer: 40
     ViolationName: Promoting
     Violation: 3
     ChatSpeed: {x: 0.2, y: 0.8}
-  - levelUpTimer: 30
+  - levelUpTimer: 50
     ViolationName: 
     Violation: 0
     ChatSpeed: {x: 0.2, y: 0.8}
