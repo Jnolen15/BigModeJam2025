@@ -287,10 +287,9 @@ public class ChatTabsManager : MonoBehaviour
     {
 
         float startingViewerCount = 50;
-        float growthRate = 0.05f;
         float viewerCount = startingViewerCount;
-        float viewerIncreaseRate = 1 + growthRate; // rate at which the # of viewers increases
-        float viewerCountIncreaseRate = 1 - growthRate; // rate at which the time between viewer count increases
+        float viewerIncreaseRate = 1.05f; // rate at which the # of viewers increases
+        float viewerCountIncreaseRate = 0.99f; // rate at which the time between viewer count increases
         float maxViewerCountIncrease = 3;
         float minViewerCountIncrease = 1;
         float maxViewerIncreaseTime = 10;
