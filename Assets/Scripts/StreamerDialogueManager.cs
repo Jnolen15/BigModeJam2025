@@ -14,6 +14,8 @@ public class StreamerDialogueManager : MonoBehaviour
     public GameObject Streamer;
     public GameObject DialogueBox;
     public GameObject DialogueTextBox;
+    public GameObject GameWonTimeline;
+    public GameObject GameLoseTimeline;
 
 
     private TextMeshProUGUI _textMessaage;
@@ -26,6 +28,9 @@ public class StreamerDialogueManager : MonoBehaviour
     {
         _textMessaage = DialogueTextBox.GetComponent<TextMeshProUGUI>();
         _image = Streamer.GetComponent<UnityEngine.UI.Image>().overrideSprite;
+        ChooseTimeline();
+
+
         StartCoroutine("ShowDialogue");
 
     }
@@ -66,25 +71,77 @@ public class StreamerDialogueManager : MonoBehaviour
         }
     }
 
-    public IEnumerator ReactionDialogue(bool outcome)
+    //For the timeline emitter when you win
+    public void GameWon()
+    {
+        StartCoroutine("ReactionDialogueWin");
+        
+        
+    }
+    public IEnumerator ReactionDialogueWin()
     {
 
-        if (!outcome) 
-        {
-            Streamer.GetComponent<PlayableDirector>().enabled = true;
-            //Use Scriptable Object here
-            _textMessaage.text = "Oh shucks! looks like we lost buddies";
+        StopCoroutine("ShowDialogue");
+        Streamer.GetComponent<PlayableDirector>().enabled = true;
+        //Use Scriptable Object here
+        _textMessaage.text = "OH SHELL YEAH! WE WON BUDDIES";
 
             
-            DialogueBox.SetActive(true);
+        DialogueBox.SetActive(true);
 
-            yield return new WaitForSeconds(5);
-            Streamer.GetComponent<PlayableDirector>().initialTime = 0;
-            Streamer.GetComponent<PlayableDirector>().enabled = false;
-            DialogueBox.SetActive(false);
+        yield return new WaitForSeconds(5);
+        GameWonTimeline.SetActive(false);
+        GameWonTimeline.GetComponent<PlayableDirector>().initialTime = 0;
+        Streamer.GetComponent<PlayableDirector>().initialTime = 0;
+        Streamer.GetComponent<PlayableDirector>().enabled = false;
+        DialogueBox.SetActive(false);
+
+        ChooseTimeline();
+
+        StartCoroutine("ShowDialogue");
+        
+    }
+
+    //For the timeline emitter when you lose
+    public void GameLost()
+    {
+        StartCoroutine("ReactionDialogueLose");
+        
+        
+    }
+    public IEnumerator ReactionDialogueLose()
+    {
+        StopCoroutine("ShowDialogue");
+        Streamer.GetComponent<PlayableDirector>().enabled = true;
+        //Use Scriptable Object here
+        _textMessaage.text = "Oh shucks! looks like we lost buddies";
 
 
-            yield return null;
+        DialogueBox.SetActive(true);
+
+        yield return new WaitForSeconds(5);
+        GameLoseTimeline.SetActive(false);
+        GameLoseTimeline.GetComponent<PlayableDirector>().initialTime = 0;
+        Streamer.GetComponent<PlayableDirector>().initialTime = 0;
+        Streamer.GetComponent<PlayableDirector>().enabled = false;
+        DialogueBox.SetActive(false);
+        ChooseTimeline();
+        StartCoroutine("ShowDialogue");
+    }
+
+    
+    
+
+    public void ChooseTimeline()
+    {
+        int rand = Random.Range(0,2);
+        if (rand == 0)
+        {
+            GameLoseTimeline.SetActive(true);
+        }
+        if (rand == 1)
+        {
+            GameWonTimeline.SetActive(true);
         }
     }
 
