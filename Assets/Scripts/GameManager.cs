@@ -95,27 +95,17 @@ public class GameManager : MonoBehaviour
     // selects a punishemnt type from timeout, to perma ban, to make vib
     private PunishementType GeneratePunishementType()
     {
-        while (true)
+        switch (UnityEngine.Random.Range(0, 3))
         {
-            switch (UnityEngine.Random.Range(0, 6))
-            {
-                case 0:
-                    return PunishementType.Timeout;
-                case 1:
-                    break; // unused punishments just loop for now
-                case 2:
-                    return PunishementType.Perma_Ban;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    return PunishementType.Make_VIB;
-
-                default:
-                    Debug.LogWarning("Invalid int for enum conversion");
-                    return PunishementType.Timeout;
-            }
+            case 0:
+                return PunishementType.Timeout;
+            case 1:
+                return PunishementType.Perma_Ban;
+            case 2:
+                return PunishementType.Make_VIB;
+            default:
+                Debug.LogWarning("Invalid int for enum conversion");
+                return PunishementType.Timeout;
         }
     }
 }
