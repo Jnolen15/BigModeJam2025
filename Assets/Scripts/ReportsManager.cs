@@ -28,7 +28,7 @@ public class ReportsManager : MonoBehaviour
     public void OnDestroy()
     {
         ChatManager.OnMissedMessage -= DisplayReportMsg;
-        ChatManager.OnFalseBan += DisplayFalseBanMsg;
+        ChatManager.OnFalseBan -= DisplayFalseBanMsg;
     }
 
     // ============== Function ==============
