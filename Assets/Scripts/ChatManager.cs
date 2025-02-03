@@ -32,6 +32,8 @@ public class ChatManager : MonoBehaviour
     private float _streamTimer;
     private bool _streamStarted;
     private bool _gameEnded;
+    [SerializeField] private int _currentMessageOdds;
+    private int _baseMessageOdds = 95;
     private List<TextChatMsg> _activeChatList = new List<TextChatMsg>();
     [SerializeField] private List<CommentsSO.Violations> _violationsList = new List<CommentsSO.Violations>();
     [SerializeField] private List<ChatTabsManager.PunishementType> _punishmentsList = new List<ChatTabsManager.PunishementType>();
@@ -52,6 +54,8 @@ public class ChatManager : MonoBehaviour
         GameManager.OnNewChatSpeed += NewChatSpeed;
         GameManager.OnGameStarted += StartStream;
         GameManager.OnGameEnded += EndStream;
+
+        _currentMessageOdds = _baseMessageOdds;
     }
 
     public void OnDestroy()
@@ -102,10 +106,16 @@ public class ChatManager : MonoBehaviour
         int randUsername = Random.Range(0, _usernameList.Count);
 
         int rand = Random.Range(0, 100);
-        if (rand < 90)
+        if (rand < _currentMessageOdds)
+        {
+            _currentMessageOdds -= 5;
             DisplayChatMsg(_usernameList[randUsername], _generalMSGList[Random.Range(0, _generalMSGList.Count)]);
+        }
         else
+        {
+            _currentMessageOdds = _baseMessageOdds;
             SendNewViolatingChat(randUsername);
+        }
     }
 
     private void SendNewViolatingChat(int randUsername)
@@ -238,7 +248,7 @@ public class ChatManager : MonoBehaviour
                 // Send violation message to reports area
                 OnMissedMessage?.Invoke(violation, ChatTabsManager.PunishementType.Temp_Ban, chatMsg); // punishment type is not used here just needs to be passed
 
-                AdjustScore(-5);
+                AdjustScore(-3);
             }
         }
 
@@ -271,7 +281,7 @@ public class ChatManager : MonoBehaviour
         if (index == -1)
         {
             // not a violation
-            AdjustScore(-5);
+            AdjustScore(-3);
             OnFalseBan?.Invoke(chatMsg.GetComment().violation, p, chatMsg);
         }
         else
@@ -280,12 +290,12 @@ public class ChatManager : MonoBehaviour
             if (p == _punishmentsList[index])
             {
                 // correct punishment
-                AdjustScore(+5);
+                AdjustScore(+3);
             }
             else
             {
                 // incorrect punishment
-                AdjustScore(-3);
+                AdjustScore(-1);
                 OnFalseBan?.Invoke(chatMsg.GetComment().violation, p, chatMsg);
             }
         }
