@@ -2443,6 +2443,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6520229219922467684, guid: 24f8de347b5209a47bb3024dc18a7caf, type: 3}
   m_PrefabInstance: {fileID: 678845364}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &647250467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647250464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: edb8c7bd7ccbb7641aa28ccfffccd15c, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1533229270}
+          m_TargetAssemblyTypeName: StreamerDialogueManager, Assembly-CSharp
+          m_MethodName: GameLost
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!224 &677400595 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1072406567070343976, guid: ee626a25e9c85494c93963cd4bfd67d2, type: 3}
@@ -2744,7 +2774,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3550651460316807460, guid: 24f8de347b5209a47bb3024dc18a7caf, type: 3}
       insertIndex: 1
       addedObject: {fileID: 286034467}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4234590008073897381, guid: 24f8de347b5209a47bb3024dc18a7caf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2109871343}
+    - targetCorrespondingSourceObject: {fileID: 6520229219922467684, guid: 24f8de347b5209a47bb3024dc18a7caf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 647250467}
   m_SourcePrefab: {fileID: 100100000, guid: 24f8de347b5209a47bb3024dc18a7caf, type: 3}
 --- !u!224 &678845365 stripped
 RectTransform:
@@ -8266,6 +8302,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4234590008073897381, guid: 24f8de347b5209a47bb3024dc18a7caf, type: 3}
   m_PrefabInstance: {fileID: 678845364}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2109871343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109871340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: edb8c7bd7ccbb7641aa28ccfffccd15c, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1533229270}
+          m_TargetAssemblyTypeName: StreamerDialogueManager, Assembly-CSharp
+          m_MethodName: GameWon
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2118786476
 GameObject:
   m_ObjectHideFlags: 0
