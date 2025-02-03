@@ -4835,10 +4835,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3525172516798527029, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
       insertIndex: 2
       addedObject: {fileID: 2143955869}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5757908695396891247, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1115905468}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
 --- !u!224 &1115905464 stripped
 RectTransform:
@@ -4856,61 +4853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1115905466 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5757908695396891247, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
-  m_PrefabInstance: {fileID: 1115905463}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1115905467 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 8818760700813307829, guid: 5714d9149c14d8a44b14820dd76b8d57, type: 3}
-  m_PrefabInstance: {fileID: 1115905463}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1115905468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115905466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1115905467}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: e1cfd6d0a54397a4d88df2e86a2609e0, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1115905467}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: PlayOneShot
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 8300000, guid: 17ac2619d7853104bab17688fd509623, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1124978623
 GameObject:
   m_ObjectHideFlags: 0
