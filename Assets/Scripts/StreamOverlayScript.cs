@@ -36,6 +36,9 @@ public class StreamOverlayScript : MonoBehaviour
         ChatManager.OnFinalScore += UpdateFinalScore;
 
         _countdownTimer = 8;
+
+        _endingScreen.SetActive(false);
+        UpdateFinalScore(25, 50);
     }
 
     private void OnDestroy()
