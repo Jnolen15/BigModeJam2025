@@ -182,6 +182,7 @@ public class ChatTabsManager : MonoBehaviour
     public void CloseModTab()
     {
         _modToolsTab.SetActive(false);
+        ToggleTabIndicators(_reportsIndicator);
     }
 
     public void ToggleReportsTab()
